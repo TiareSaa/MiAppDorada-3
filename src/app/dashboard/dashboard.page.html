@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dashboard</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="dashboard-content">
+  <h1 class="titulo">Bienvenida a Mi App Dorada</h1>
+  <p class="subtitulo">¿Qué deseas hacer hoy?</p>
+
+  <div class="tarjetas-grid">
+    <ion-card class="tarjeta" (click)="goTo('calendario')">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <p>Calendario</p>
+    </ion-card>
+
+    <ion-card class="tarjeta" (click)="goTo('medicamentos')">
+      <ion-icon name="medkit-outline"></ion-icon>
+      <p>Medicamentos</p>
+    </ion-card>
+
+    <ion-card class="tarjeta" (click)="goTo('panoramas')">
+      <ion-icon name="balloon-outline"></ion-icon>
+      <p>Panoramas</p>
+    </ion-card>
+
+    <ion-card class="tarjeta" (click)="goTo('contactos')">
+      <ion-icon name="people-outline"></ion-icon>
+      <p>Contactos</p>
+    </ion-card>
+
+    <ion-card class="tarjeta" (click)="goTo('consejos')">
+      <ion-icon name="bulb-outline"></ion-icon>
+      <p>Consejos</p>
+    </ion-card>
+
+    <ion-card class="tarjeta panico" (click)="goTo('panic')">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+      <p>Botón de Pánico</p>
+    </ion-card>
+  </div>
 </ion-content>

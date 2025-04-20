@@ -1,0 +1,59 @@
+.dashboard-content {
+    padding: 20px;
+    text-align: center;
+  
+    .titulo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #6f42c1;
+    }
+  
+    .subtitulo {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+  
+    .tarjetas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+  
+    .tarjeta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6f42c1;
+      transition: 0.2s ease-in-out;
+  
+      ion-icon {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        color:#6f42c1
+      }
+  
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  
+    .panico {
+      background-color: #f8d7da;
+      color: #721c24;
+  
+      ion-icon {
+        color: #c82333;
+      }
+    }
+  }
+
+ion-icon {
+  font-size: 24px;
+  color: var(--ion-color-primary);
+}

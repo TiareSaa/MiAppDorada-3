@@ -1,0 +1,74 @@
+.register-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: white;
+  
+    .register-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .logo-container {
+      margin-bottom: 10px;
+  
+      img {
+        width: 120px;
+        height: auto;
+      }
+    }
+  
+    .titulo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #6f42c1;
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+  
+    .subtitulo {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      padding: 0 20px;
+    }
+  
+    .formulario {
+      width: 100%;
+      max-width: 360px;
+      padding: 0 20px;
+  
+      ion-item {
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+  
+      .btn-register {
+        --background: #c8a2c8;
+        --color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        margin-top: 10px;
+      }
+  
+      .login-link {
+        text-align: center;
+        font-size: 0.85rem;
+        margin-top: 15px;
+  
+        a {
+          color: #6f42c1;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  

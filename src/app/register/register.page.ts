@@ -1,20 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+// src/pages/register/register.page.ts
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [CommonModule, IonicModule, FormsModule, ReactiveFormsModule, RouterModule],
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss']
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage {
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+    });
   }
 
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.valid && this.passwordsMatch()) {
+      // Simulación de registro exitoso
+      this.router.navigateByUrl('/dashboard');
+    }
+  }
+
+  passwordsMatch(): boolean {
+    return this.registerForm.value.password === this.registerForm.value.confirmPassword;
+  }
 }
+

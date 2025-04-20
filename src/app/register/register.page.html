@@ -1,13 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="register-content">
+  <div class="register-wrapper">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div class="logo-container">
+      <img src="assets/icon/logoinicial.png" alt="Logo Mi App Dorada" />
+    </div>
+
+    <h1 class="titulo">Regístrate</h1>
+    <p class="subtitulo">Crea tu cuenta en Mi App Dorada</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="formulario">
+
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Nombre completo" type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Correo electrónico" type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Contraseña" type="password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Confirmar contraseña" type="password" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+
+      <ion-text color="danger" *ngIf="submitted && !passwordsMatch()">
+        <p class="ion-padding-start">Las contraseñas no coinciden</p>
+      </ion-text>
+
+      <ion-button expand="block" type="submit" class="btn-register">REGISTRARSE</ion-button>
+
+      <p class="login-link">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
+    </form>
+  </div>
 </ion-content>

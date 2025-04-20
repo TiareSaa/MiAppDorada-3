@@ -1,0 +1,64 @@
+<ion-content class="login-content">
+  <div class="login-wrapper">
+   
+  <div class="logo-container">
+    <img src="assets/icon/logoinicial.png" alt="Logo Mi App Dorada" />
+  </div>
+
+ 
+  <p class="subtitulo">Tu compañía para una vida más conectada</p>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formulario">
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input 
+        placeholder="Email" 
+        type="email" 
+        formControlName="email"
+        aria-label="Email"  
+        autocomplete="email"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input 
+      placeholder="Contraseña" 
+      type="password" 
+      formControlName="password"
+      aria-label="Contraseña"
+      autocomplete="current-password"
+    ></ion-input>
+    </ion-item>
+
+    <div class="link-recuperar">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <ion-button expand="block" type="submit" class="btn-login" [disabled]="loading">
+      <ion-spinner *ngIf="loading" slot="start"></ion-spinner>
+      INGRESAR
+    </ion-button>
+
+    <div class="separador">O INGRESA CON</div>
+
+    <div class="redes-sociales">
+      <ion-button shape="round" fill="outline" class="facebook">FACEBOOK</ion-button>
+      <ion-button shape="round" fill="outline" class="google">GOOGLE</ion-button>
+    </div>
+
+    <p class="registro">¿No tienes cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+  </form>
+
+  <ion-text color="success" *ngIf="submitted && loginForm.valid">
+    <p>Inicio de sesión exitoso</p>
+  </ion-text>
+  <ion-text color="danger" *ngIf="submitted && !loginForm.valid">
+    <p>Por favor, corrige los errores en el formulario</p>
+  </ion-text>
+
+  </div>
+  <div class="footer">
+    <p>© 2025 Mi App Dorada. Todos los derechos reservados.</p>
+  </div>
+</ion-content>

@@ -1,0 +1,130 @@
+.login-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #ffffff;
+  
+    .logo-container {
+      margin-bottom: 10px;
+  
+      img {
+        width: 240px;
+        height: auto;
+      }
+    }
+  
+    .titulo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #6f42c1;
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+  
+    .subtitulo {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      padding: 0 20px;
+    }
+  
+    .formulario {
+      width: 100%;
+      max-width: 360px;
+      padding: 0 20px;
+  
+      ion-item {
+        border-radius: 10px;
+        margin-bottom: 15px;
+      }
+  
+      .btn-login {
+        --background: #c8a2c8; // lila suave
+        --color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        margin-top: 10px;
+      }
+  
+      .link-recuperar {
+        text-align: right;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+  
+        a {
+          color: #6f42c1;
+          text-decoration: none;
+        }
+      }
+  
+      .separador {
+        text-align: center;
+        margin: 15px 0;
+        color: #888;
+        font-size: 0.9rem;
+      }
+  
+      .redes-sociales {
+        display: flex;
+        justify-content: space-between;
+  
+        ion-button {
+          flex: 1;
+          margin: 0 5px;
+          font-size: 0.8rem;
+          --border-radius: 20px;
+        }
+  
+        .facebook {
+          --border-color: #3b5998;
+          --color: #3b5998;
+        }
+  
+        .google {
+          --border-color: #db4437;
+          --color: #db4437;
+        }
+      }
+  
+      .registro {
+        text-align: center;
+        font-size: 0.85rem;
+        margin-top: 15px;
+  
+        a {
+          color: #6f42c1;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .login-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: white;
+  
+    .login-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .footer {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    display: flex;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--ion-color-medium);
+  }

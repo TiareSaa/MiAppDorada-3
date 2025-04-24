@@ -1,21 +1,17 @@
 // src/pages/calendario/calendario.page.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { ModalController } from '@ionic/angular';
-import { ModalPage } from './modal/modal-cita.page';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule, ModalController } from '@ionic/angular';
+import { ModalCitaModal } from './modal-cita.modal';
 
 @Component({
   selector: 'app-calendario',
   standalone: true,
-  imports: [CommonModule, IonicModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, IonicModule],
   templateUrl: './calendario.page.html',
   styleUrls: ['./calendario.page.scss'],
 })
-
 export class CalendarioPage {
-  constructor(private modalController: ModalController) {}
   citas = [
     {
       fecha: 'Lunes 22 de abril',
@@ -28,12 +24,21 @@ export class CalendarioPage {
       hora: '08:00 AM',
       medico: 'Dr. Juan Soto',
       lugar: 'Hospital Regional',
-    }
+    },
   ];
+
+  constructor(private modalCtrl: ModalController) {}
+
   async abrirModal() {
-    const modal = await this.modalController.create({
-      component: ModalPage, // Asegúrate de importar el componente del modal
+    const modal = await this.modalCtrl.create({
+      component: ModalCitaModal,
     });
-    return await modal.present();
+
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    if (data) {
+      this.citas.push(data);
+    }
   }
 }

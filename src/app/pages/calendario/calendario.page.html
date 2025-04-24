@@ -1,0 +1,20 @@
+<ion-content class="calendario-content">
+  <h2 class="titulo">Citas Médicas</h2>
+  <p class="subtitulo">Aquí puedes revisar tus próximas consultas</p>
+
+  <ion-list>
+    <ion-item *ngFor="let cita of citas" class="item-cita">
+      <ion-label>
+        <h3>{{ cita.fecha }}</h3>
+        <p><strong>Hora:</strong> {{ cita.hora }}</p>
+        <p><strong>Médico:</strong> {{ cita.medico }}</p>
+        <p><strong>Lugar:</strong> {{ cita.lugar }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" fill="outline" (click)="abrirModal()">
+    <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+    Agendar nueva cita
+  </ion-button>
+  

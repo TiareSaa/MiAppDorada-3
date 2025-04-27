@@ -3,7 +3,7 @@
   <p class="subtitulo">Aquí puedes revisar tus próximas consultas</p>
 
   <ion-list>
-    <ion-item *ngFor="let cita of citas" class="item-cita">
+    <ion-item *ngFor="let cita of citas; let i = index" (click)="editarCita(i)">
       <ion-label>
         <h3>{{ cita.fecha }}</h3>
         <p><strong>Hora:</strong> {{ cita.hora }}</p>
@@ -12,9 +12,15 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  
 
   <ion-button expand="block" color="primary" fill="outline" (click)="abrirModal()">
     <ion-icon name="add-circle-outline" slot="start"></ion-icon>
     Agendar nueva cita
+  </ion-button>
+  
+  <ion-button expand="block" color="danger" fill="solid" (click)="borrarCitas()">
+    <ion-icon name="trash-outline" slot="start"></ion-icon>
+    Borrar todas las citas
   </ion-button>
   

@@ -1,5 +1,5 @@
 // src/app/pages/calendario/modal-cita.modal.ts
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalController, IonicModule } from '@ionic/angular';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
@@ -11,8 +11,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule, Validators } 
   templateUrl: './modal-cita.modal.html',
   styleUrls: ['./modal-cita.modal.scss']
 })
-export class ModalCitaModal {
-  form: FormGroup;
+export class ModalCitaModal implements OnInit { 
+  @Input() modo: 'crear' | 'editar' = 'crear';
+  @Input() cita: any = null;
+
+  form: FormGroup; //  formulario reactivo
 
   constructor(private fb: FormBuilder, private modalCtrl: ModalController) {
     this.form = this.fb.group({
@@ -22,6 +25,12 @@ export class ModalCitaModal {
       lugar: ['', Validators.required],
     });
   }
+
+  ngOnInit() {
+    if (this.modo === 'editar' && this.cita) {
+      this.form.patchValue(this.cita); // carga los datos de la cita en el formulario
+    }
+  } 
 
   guardar() {
     if (this.form.valid) {

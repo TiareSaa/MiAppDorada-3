@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Agendar Cita</ion-title>
+      <ion-title>{{ modo === 'editar' ? 'Editar Cita' : 'Agendar Nueva Cita' }}</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="cerrar()">Cerrar</ion-button>
       </ion-buttons>

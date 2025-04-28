@@ -1,0 +1,20 @@
+
+<ion-content class="ion-padding">
+
+  <h1 class="titulo">Bienvenido a Mi App Dorada</h1>
+
+  <p>Antes de comenzar, por favor revise y acepte nuestra Política de Privacidad para poder utilizar la aplicación.</p>
+
+  <ion-button expand="full" fill="outline" color="primary" (click)="verPolitica()">
+    Leer Política de Privacidad
+  </ion-button>
+
+  <ion-checkbox [(ngModel)]="aceptaPolitica" labelPlacement="end">
+    Acepto la Política de Privacidad
+  </ion-checkbox>
+
+  <ion-button expand="full" color="success" [disabled]="!aceptaPolitica" (click)="aceptarPolitica()">
+    Aceptar y Continuar
+  </ion-button>
+
+</ion-content>

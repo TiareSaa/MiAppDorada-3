@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule, ModalController } from '@ionic/angular';
-import { ModalCitaModal } from './modal-cita.modal';
+import { ModalCitaModal } from '../../components/modals/cita/modal-cita.modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({

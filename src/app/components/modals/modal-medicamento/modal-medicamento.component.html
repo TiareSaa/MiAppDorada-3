@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ medicamento ? 'Editar Medicamento' : 'Agregar Medicamento' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="floating">Nombre del medicamento</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Dosis</ion-label>
+      <ion-input formControlName="dosis"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Hora</ion-label>
+      <ion-input type="time" formControlName="hora"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Frecuencia</ion-label>
+      <ion-select formControlName="frecuencia">
+        <ion-select-option value="una vez al día">Una vez al día</ion-select-option>
+        <ion-select-option value="cada 12 hrs">Cada 12 hrs</ion-select-option>
+        <ion-select-option value="cada 8 hrs">Cada 8 hrs</ion-select-option>
+        <ion-select-option value="cada 6 hrs">Cada 6 hrs</ion-select-option>
+        <ion-select-option value="cada 4 hrs">Cada 4 hrs</ion-select-option>
+        <ion-select-option value="cada 2 hrs">Cada 2 hrs</ion-select-option>
+        <ion-select-option value="cada hora">Cada hora</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Vía de administración</ion-label>
+      <ion-select formControlName="via">
+        <ion-select-option value="oral">Oral</ion-select-option>
+        <ion-select-option value="inyectable">Inyectable</ion-select-option>
+        <ion-select-option value="tópica">Tópica</ion-select-option>
+        <ion-select-option value="inhalatoria">Inhalatoria</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Fecha de inicio</ion-label>
+      <ion-input type="date" formControlName="fechaInicio"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Días de tratamiento</ion-label>
+      <ion-input type="number" formControlName="cantidad"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Fecha de término</ion-label>
+      <ion-input [value]="form.get('fechaFin')?.value" readonly></ion-input>
+    </ion-item> 
+
+    <ion-item>
+      <ion-label position="floating">Notas adicionales</ion-label>
+      <ion-textarea formControlName="notas"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" color="success" (click)="guardar()" [disabled]="!form.valid">
+      {{ medicamento ? 'Guardar Cambios' : 'Agregar Medicamento' }}
+    </ion-button>
+  </form>
+</ion-content>

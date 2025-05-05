@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>medicamentos</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mis Medicamentos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirModal()">
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">medicamentos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div *ngIf="medicamentos.length === 0" class="mensaje-vacio">
+    <p>Aún no has agregado medicamentos.</p>
+  </div>
+
+  <ion-list *ngIf="medicamentos.length > 0">
+    <ion-item *ngFor="let medicamento of medicamentos; let i = index">
+      <ion-label>
+        <h2>{{ medicamento.nombre }}</h2>
+        <p><strong>Dosis:</strong> {{ medicamento.dosis }}</p>
+        <p><strong>Hora:</strong> {{ medicamento.hora }}</p>
+        <p *ngIf="medicamento.frecuencia"><strong>Frecuencia:</strong> {{ medicamento.frecuencia }}</p>
+        <p *ngIf="medicamento.notas"><strong>Notas:</strong> {{ medicamento.notas }}</p>
+      </ion-label>
+
+      <ion-buttons slot="end">
+        <ion-button color="primary" (click)="editarMedicamento(i)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="eliminarMedicamento(i)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 </ion-content>

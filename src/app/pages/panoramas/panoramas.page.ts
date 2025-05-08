@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ModalPanoramaComponent } from 'src/app/components/modals/modal-panorama/modal-panorama.component';
+import { HttpClient } from '@angular/common/http';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonGrid, IonCol, IonCardTitle, IonCardContent, IonCardSubtitle, IonCardHeader, IonRow } from '@ionic/angular/standalone';
 
 @Component({
@@ -23,15 +24,18 @@ export class PanoramasPage implements OnInit {
       fecha: '2025-05-25',
       hora: '10:00 AM',
       lugar: 'Centro Comunitario El Roble',
-      imagen: 'assets/img/memoria.jpg',
+      imagen: 'assets/img/Tallerdememoria.jpg',
       requiereInscripcion: true
     },
     // puedes agregar más panoramas
   ];
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(private modalCtrl: ModalController, private http: HttpClient) {}
 
   ngOnInit() {
+    this.http.get<any[]>('assets/data/eventos.json').subscribe(data => {
+      this.panoramas = data;
+    });
   }
   
   async abrirDetalle(evento: any) {

@@ -1,0 +1,94 @@
+[
+    {
+      "id": 1,
+      "titulo": "Taller de Memoria Activa",
+      "descripcion": "Ejercicios prácticos para fortalecer la memoria.",
+      "fecha": "2025-05-22",
+      "hora": "10:00",
+      "lugar": "Centro Cultural El Roble",
+      "imagen": "assets/img/taller-memoria.jpg",
+      "requiereInscripcion": true
+    },
+    {
+      "id": 2,
+      "titulo": "Cine para Mayores",
+      "descripcion": "Proyección gratuita de películas clásicas.",
+      "fecha": "2025-05-24",
+      "hora": "18:00",
+      "lugar": "Casa del Adulto Mayor",
+      "imagen": "assets/img/cine.jpeg",
+      "requiereInscripcion": false
+    },
+    {
+      "id": 3,
+      "titulo": "Feria de Emprendedores Senior",
+      "descripcion": "Muestra de productos hechos por adultos mayores.",
+      "fecha": "2025-05-26",
+      "hora": "11:00",
+      "lugar": "Plaza de Armas",
+      "imagen": "assets/img/feria.jpg",
+      "requiereInscripcion": false
+    },
+
+    {
+      "id": 4,
+      "titulo": "Taller de Manualidades",
+      "descripcion": "Aprende a hacer manualidades con materiales reciclados.",
+      "fecha": "2025-05-28",
+      "hora": "15:00",
+      "lugar": "Centro Cultural El Roble",
+      "imagen": "assets/img/manualidades.jpeg",
+      "requiereInscripcion": true
+    },
+    {
+      "id": 5,
+      "titulo": "Concierto de Música Clásica",
+      "descripcion": "Disfruta de un concierto en vivo con música clásica.",
+      "fecha": "2025-05-30",
+      "hora": "19:00",
+      "lugar": "Teatro Municipal",
+      "imagen": "assets/img/concierto.jpg",
+      "requiereInscripcion": false
+    },
+    {
+      "id": 6,
+      "titulo": "Taller de Cocina Saludable",
+      "descripcion": "Aprende a cocinar platos saludables y deliciosos.",
+      "fecha": "2025-06-01",
+      "hora": "10:00",
+      "lugar": "Centro de Salud",
+      "imagen": "assets/img/cocina.jpg",
+      "requiereInscripcion": true
+    }  
+,
+    {
+      "id": 7,
+      "titulo": "Yoga para el Bienestar",
+      "descripcion": "Clases de yoga adaptadas para adultos mayores.",
+      "fecha": "2025-06-03",
+      "hora": "08:00",
+      "lugar": "Parque Central",
+      "imagen": "assets/img/yoga.jpg",
+      "requiereInscripcion": false
+    },
+    {
+      "id": 8,
+      "titulo": "Taller de Fotografía",
+      "descripcion": "Aprende a capturar momentos especiales.",
+      "fecha": "2025-06-05",
+      "hora": "14:00",
+      "lugar": "Centro Cultural El Roble",
+      "imagen": "assets/img/fotografia.jpg",
+      "requiereInscripcion": true
+    },
+    {
+      "id": 9,
+      "titulo": "Charla sobre Salud Mental",
+      "descripcion": "Importancia de la salud mental en la tercera edad.",
+      "fecha": "2025-06-07",
+      "hora": "16:00",
+        "lugar": "Casa del Adulto Mayor",
+        "imagen": "assets/img/salud-mental.jpg",
+        "requiereInscripcion": false
+    }
+]

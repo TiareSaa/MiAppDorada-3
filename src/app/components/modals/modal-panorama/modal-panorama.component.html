@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ evento?.titulo }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <img [src]="evento?.imagen" alt="Imagen del evento" />
+
+  <p><strong>Fecha:</strong> {{ evento?.fecha }}</p>
+  <p><strong>Hora:</strong> {{ evento?.hora }}</p>
+  <p><strong>Lugar:</strong> {{ evento?.lugar }}</p>
+  <p><strong>Descripción:</strong> {{ evento?.descripcion }}</p>
+
+  <ion-button expand="block" color="success" *ngIf="evento?.requiereInscripcion" (click)="inscribirse()">
+    Inscribirse
+  </ion-button>
+</ion-content>

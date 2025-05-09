@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'calendario', loadComponent: () => import('./pages/calendario/calendario.page').then((m) => m.CalendarioPage) },
   { path: 'medicamentos', loadComponent: () => import('./pages/medicamentos/medicamentos.page').then((m) => m.MedicamentosPage) },
   { path: 'panoramas', loadComponent: () => import('./pages/panoramas/panoramas.page').then((m) => m.PanoramasPage) },
-  { path: 'contactos', loadComponent: () => import('./pages/contactos/contactos.page').then((m) => m.ContactosPage) },
+  { path: 'actividades', loadComponent: () => import('./pages/actividades/actividades.page').then((m) => m.ActividadesPage) },
   { path: 'consejos', loadComponent: () => import('./pages/consejos/consejos.page').then((m) => m.ConsejosPage) },
   { path: 'panic', loadComponent: () => import('./pages/panic/panic.page').then((m) => m.PanicPage) },
 

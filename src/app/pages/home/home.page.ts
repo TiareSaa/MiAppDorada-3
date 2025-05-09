@@ -35,12 +35,12 @@ export class HomePage {
   verificarAceptacion() {
     const acepto = localStorage.getItem('aceptoPolitica');
     if (acepto === 'true') {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/login']);
     }
   }
 
   aceptarPolitica() {
     localStorage.setItem('aceptoPolitica', 'true');
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/login']);
   }
 }

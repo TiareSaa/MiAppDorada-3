@@ -12,6 +12,8 @@ export const routes: Routes = [
   { path: 'medicamentos', loadComponent: () => import('./pages/medicamentos/medicamentos.page').then((m) => m.MedicamentosPage) },
   { path: 'panoramas', loadComponent: () => import('./pages/panoramas/panoramas.page').then((m) => m.PanoramasPage) },
   { path: 'actividades', loadComponent: () => import('./pages/actividades/actividades.page').then((m) => m.ActividadesPage) },
+  { path: 'actividad-detalle/:categoria', loadComponent: () => import('./pages/actividad-detalle/actividad-detalle.page').then((m) => m.ActividadDetallePage) },
+  { path: 'actividad-guia/:id', loadComponent: () => import('./pages/actividad-guia/actividad-guia.page').then((m) => m.ActividadGuiaPage) },
   { path: 'consejos', loadComponent: () => import('./pages/consejos/consejos.page').then((m) => m.ConsejosPage) },
   { path: 'panic', loadComponent: () => import('./pages/panic/panic.page').then((m) => m.PanicPage) },
 

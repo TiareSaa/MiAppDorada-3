@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/actividad-detalle"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ actividad.titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment [(ngModel)]="modoVisual" value="imagen">
+    <ion-segment-button value="imagen">
+      <ion-label>Mostrar imagen</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="texto">
+      <ion-label>Mostrar texto</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="modoVisual === 'imagen'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let paso of actividad.pasosImagen">
+          <ion-card class="imagen-paso">
+            <img [src]="paso" alt="Paso visual">
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="modoVisual === 'texto'">
+    <ion-list>
+      <ion-item *ngFor="let paso of actividad.pasosTexto; let i = index">
+        <ion-label>{{ i + 1 }}. {{ paso }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

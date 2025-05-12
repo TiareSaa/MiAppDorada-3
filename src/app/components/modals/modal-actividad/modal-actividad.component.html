@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ actividad?.titulo }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="botones">
+    <ion-button (click)="mostrar('imagen')" [fill]="modo === 'imagen' ? 'solid' : 'outline'">Mostrar imagen</ion-button>
+    <ion-button (click)="mostrar('texto')" [fill]="modo === 'texto' ? 'solid' : 'outline'">Mostrar texto</ion-button>
+  </div>
+
+  <div *ngIf="modo === 'imagen'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let paso of actividad?.pictogramas">
+          <ion-card>
+            <img [src]="paso.imagen" alt="{{ paso.titulo }}" />
+            <ion-card-header>
+              <ion-card-title>{{ paso.titulo }}</ion-card-title>
+              <ion-card-subtitle>{{ paso.descripcion }}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf="modo === 'texto'">
+    <ion-list>
+      <ion-item *ngFor="let paso of actividad?.pictogramas; let i = index">
+        <ion-label>
+          {{ i + 1 }}. {{ paso.titulo }}: {{ paso.descripcion }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

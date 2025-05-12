@@ -4,47 +4,49 @@ import { FormsModule } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ModalPanoramaComponent } from 'src/app/components/modals/modal-panorama/modal-panorama.component';
 import { HttpClient } from '@angular/common/http';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonGrid, IonCol, IonCardTitle, IonCardContent, IonCardSubtitle, IonCardHeader, IonRow } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonGrid, IonCol, IonCardTitle, IonCardContent, IonCardSubtitle, IonCardHeader, IonRow, IonSearchbar } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-panoramas',
   templateUrl: './panoramas.page.html',
   styleUrls: ['./panoramas.page.scss'],
   standalone: true,
-  imports: [IonRow, IonCardHeader, IonCardSubtitle, IonCardContent, IonCardTitle, IonCol, IonGrid, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule],
+  imports: [IonSearchbar, IonRow, IonCardHeader, IonCardSubtitle, IonCardContent, IonCardTitle, IonCol, IonGrid, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule],
   providers: [ModalController]
 })
 export class PanoramasPage implements OnInit {
-
-  panoramas = [
-    {
-      id: 1,
-      titulo: 'Taller de Memoria Activa',
-      descripcion: 'Ejercicios para fortalecer la memoria en adultos mayores.',
-      fecha: '2025-05-25',
-      hora: '10:00 AM',
-      lugar: 'Centro Comunitario El Roble',
-      imagen: 'assets/img/Tallerdememoria.jpg',
-      requiereInscripcion: true
-    },
-    // puedes agregar más panoramas
-  ];
+  panoramas: any[] = [];
+  panoramasOriginales: any[] = [];
+  filtro: string = '';
 
   constructor(private modalCtrl: ModalController, private http: HttpClient) {}
 
   ngOnInit() {
     this.http.get<any[]>('assets/data/eventos.json').subscribe(data => {
       this.panoramas = data;
+      this.panoramasOriginales = [...data];
     });
   }
-  
+
   async abrirDetalle(evento: any) {
     const modal = await this.modalCtrl.create({
       component: ModalPanoramaComponent,
       componentProps: { evento }
     });
-  
+
     await modal.present();
   }
-  
+
+  filtrarPanoramas() {
+    const searchTerm = this.filtro.trim().toLowerCase();
+
+    if (!searchTerm) {
+      this.panoramas = [...this.panoramasOriginales];
+    } else {
+      this.panoramas = this.panoramasOriginales.filter(p =>
+        p.titulo.toLowerCase().includes(searchTerm)
+      );
+    }
+  }
 }
+

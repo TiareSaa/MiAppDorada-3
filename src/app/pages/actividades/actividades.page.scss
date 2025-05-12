@@ -1,0 +1,18 @@
+.categoria-card {
+  border-left: 8px solid;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  ion-icon {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  ion-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}

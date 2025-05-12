@@ -1,0 +1,179 @@
+[
+  {
+    "id": 1,
+    "titulo": "Cobrar pensión",
+    "descripcion": "Cómo retirar tu pensión de forma segura.",
+    "categoria": "Trámites",
+    "color": "#2196F3",
+    "icono": "wallet",
+    "pasosTexto": [
+      "Ir al lugar designado.",
+      "Llevar la cédula de identidad.",
+      "Esperar el turno en la fila.",
+      "Entregar tus documentos al funcionario.",
+      "Firmar si es necesario.",
+      "Recibir el dinero.",
+      "Guardar el dinero en un lugar seguro."
+    ],
+    "pasosImagen": [
+      "assets/img/pension/01.png",
+      "assets/img/pension/02.png",
+      "assets/img/pension/03.png",
+      "assets/img/pension/04.png",
+      "assets/img/pension/05.png",
+      "assets/img/pension/06.png",
+      "assets/img/pension/07.png"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Enviar un WhatsApp",
+    "descripcion": "Aprende a mandar mensajes desde tu celular.",
+    "categoria": "Tecnología",
+    "color": "#4CAF50",
+    "icono": "chatbox-ellipses",
+    "pasosTexto": [
+      "Abrir la aplicación WhatsApp.",
+      "Elegir un contacto.",
+      "Escribir tu mensaje.",
+      "Presionar el ícono de enviar."
+    ],
+    "pasosImagen": [
+      "assets/img/whatsapp/01.png",
+      "assets/img/whatsapp/02.png",
+      "assets/img/whatsapp/03.png",
+      "assets/img/whatsapp/04.png"
+    ]
+  }
+  ,
+  {
+    "id": 3,
+    "titulo": "Hacer una llamada",
+    "descripcion": "Cómo hacer una llamada desde tu celular.",
+    "categoria": "Tecnología",
+    "color": "#FF9800",
+    "icono": "call",
+    "pasosTexto": [
+      "Abrir la aplicación de teléfono.",
+      "Marcar el número deseado.",
+      "Presionar el botón de llamar.",
+      "Esperar a que contesten."
+    ],
+    "pasosImagen": [
+      "assets/img/llamada/01.png",
+      "assets/img/llamada/02.png",
+      "assets/img/llamada/03.png",
+      "assets/img/llamada/04.png"
+    ]
+  }
+  ,
+  {
+    "id": 4,
+    "titulo": "Enviar un correo",
+    "descripcion": "Cómo enviar un correo electrónico.",
+    "categoria": "Tecnología",
+    "color": "#9C27B0",
+    "icono": "mail",
+    "pasosTexto": [
+      "Abrir la aplicación de correo.",
+      "Hacer clic en 'Redactar'.",
+      "Escribir la dirección del destinatario.",
+      "Escribir el asunto y el mensaje.",
+      "Hacer clic en 'Enviar'."
+    ],
+    "pasosImagen": [
+      "assets/img/correo/01.png",
+      "assets/img/correo/02.png",
+      "assets/img/correo/03.png",
+      "assets/img/correo/04.png"
+    ]
+  }
+  ,
+  {
+    "id": 5,
+    "titulo": "Usar el cajero automático",
+    "descripcion": "Cómo retirar dinero de un cajero automático.",
+    "categoria": "Trámites",
+    "color": "#FF5722",
+    "icono": "card",
+    "pasosTexto": [
+      "Insertar la tarjeta en el cajero.",
+      "Seleccionar el idioma.",
+      "Elegir la opción de retiro.",
+      "Seleccionar la cuenta.",
+      "Ingresar la cantidad a retirar.",
+      "Retirar el dinero y la tarjeta."
+    ],
+    "pasosImagen": [
+      "assets/img/cajero/01.png",
+      "assets/img/cajero/02.png",
+      "assets/img/cajero/03.png",
+      "assets/img/cajero/04.png"
+    ]
+  }
+  ,
+  {
+    "id": 6,
+    "titulo": "Usar el transporte público",
+    "descripcion": "Cómo usar el transporte público de forma segura.",
+    "categoria": "Transporte",
+    "color": "#3F51B5",
+    "icono": "bus",
+    "pasosTexto": [
+      "Esperar en la parada.",
+      "Subir al vehículo.",
+      "Pagar el pasaje.",
+      "Elegir un lugar para sentarse."
+    ],
+    "pasosImagen": [
+      "assets/img/transporte/01.png",
+      "assets/img/transporte/02.png",
+      "assets/img/transporte/03.png",
+      "assets/img/transporte/04.png"
+    ]
+  }
+  ,
+  {
+    "id": 7,
+    "titulo": "Comprar en el supermercado",
+    "descripcion": "Cómo hacer compras en el supermercado.",
+    "categoria": "Compras",
+    "color": "#FFEB3B",
+    "icono": "cart",
+    "pasosTexto": [
+      "Hacer una lista de compras.",
+      "Ir al supermercado.",
+      "Elegir los productos.",
+      "Pagar en la caja."
+    ],
+    "pasosImagen": [
+      "assets/img/compras/01.png",
+      "assets/img/compras/02.png",
+      "assets/img/compras/03.png",
+      "assets/img/compras/04.png"
+    ]
+  }
+  ,
+  {
+    "id": 8,
+    "titulo": "Usar el celular",
+    "descripcion": "Cómo usar un celular de forma segura.",
+    "categoria": "Tecnología",
+    "color": "#8BC34A",
+    "icono": "phone-portrait",
+    "pasosTexto": [
+      "Encender el celular.",
+      "Desbloquear la pantalla.",
+      "Abrir la aplicación deseada.",
+      "Usar el celular con precaución."
+    ],
+    "pasosImagen": [
+      "assets/img/celular/01.png",
+      "assets/img/celular/02.png",
+      "assets/img/celular/03.png",
+      "assets/img/celular/04.png"
+    ]
+  }
+]
+
+

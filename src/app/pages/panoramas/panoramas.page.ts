@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ModalPanoramaComponent } from 'src/app/components/modals/modal-panorama/modal-panorama.component';
 import { HttpClient } from '@angular/common/http';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonGrid, IonCol, IonCardTitle, IonCardContent, IonCardSubtitle, IonCardHeader, IonRow, IonSearchbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonGrid, IonCol, IonCardTitle, IonCardContent, IonCardSubtitle, IonCardHeader, IonRow, IonSearchbar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-panoramas',
   templateUrl: './panoramas.page.html',
   styleUrls: ['./panoramas.page.scss'],
   standalone: true,
-  imports: [IonSearchbar, IonRow, IonCardHeader, IonCardSubtitle, IonCardContent, IonCardTitle, IonCol, IonGrid, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule],
+  imports: [IonBackButton, IonButtons, IonSearchbar, IonRow, IonCardHeader, IonCardSubtitle, IonCardContent, IonCardTitle, IonCol, IonGrid, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule],
   providers: [ModalController]
 })
 export class PanoramasPage implements OnInit {

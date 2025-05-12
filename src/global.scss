@@ -35,3 +35,28 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+.header-azul {
+  --background: #1565c0 !important;
+  --color: white !important;
+}
+
+.header-morado {
+  --background: #6a1b9a !important;
+  --color: white !important;
+}
+
+.header-naranja {
+  --background: #ef6c00 !important;
+  --color: white !important;
+}
+
+.header-verde {
+  --background: #2e7d32 !important;
+  --color: white !important;
+}
+
+.header-amarillo {
+  --background: #f9a825 !important;
+  --color: black !important;
+}

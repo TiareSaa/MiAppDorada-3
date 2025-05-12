@@ -5,13 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {
   IonCard, IonCardHeader, IonCardContent, IonCardTitle,
-  IonCol, IonGrid, IonIcon, IonRow, IonContent, IonHeader, IonToolbar, IonTitle
-} from '@ionic/angular/standalone';
+  IonCol, IonGrid, IonIcon, IonRow, IonContent, IonHeader, IonToolbar, IonTitle, IonBackButton, IonButtons } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-actividades',
   standalone: true,
-  imports: [
+  imports: [IonButtons, IonBackButton, 
     CommonModule, FormsModule,
     IonCard, IonCardHeader, IonCardContent, IonCardTitle,
     IonCol, IonGrid, IonIcon, IonRow,

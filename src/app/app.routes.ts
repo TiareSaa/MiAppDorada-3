@@ -16,6 +16,8 @@ export const routes: Routes = [
   { path: 'actividad-guia/:id', loadComponent: () => import('./pages/actividad-guia/actividad-guia.page').then((m) => m.ActividadGuiaPage) },
   { path: 'consejos', loadComponent: () => import('./pages/consejos/consejos.page').then((m) => m.ConsejosPage) },
   { path: 'panic', loadComponent: () => import('./pages/panic/panic.page').then((m) => m.PanicPage) },
+  { path: 'consejos-detalle/:categoria', loadComponent: () => import('./pages/consejos-detalle/consejos-detalle.page').then((m) => m.ConsejosDetallePage) },
+  { path: 'consejos-guia/:id', loadComponent: () => import('./pages/consejos-guia/consejos-guia.page').then((m) => m.ConsejosGuiaPage) },
 
   // Rutas secundarias
   { path: 'register', loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage) },

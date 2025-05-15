@@ -39,8 +39,12 @@ export class ActividadDetallePage implements OnInit {
   }
 
   abrirGuia(actividad: any) {
-    this.router.navigateByUrl('/actividad-guia/:id', {
+  if (actividad.titulo === 'Respiración Guiada') {
+    this.router.navigateByUrl('/respiracion');
+  } else {
+    this.router.navigateByUrl('/actividad-guia', {
       state: { actividad }
     });
   }
+}
 }

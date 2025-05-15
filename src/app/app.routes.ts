@@ -18,6 +18,8 @@ export const routes: Routes = [
   { path: 'panic', loadComponent: () => import('./pages/panic/panic.page').then((m) => m.PanicPage) },
   { path: 'consejos-detalle/:categoria', loadComponent: () => import('./pages/consejos-detalle/consejos-detalle.page').then((m) => m.ConsejosDetallePage) },
   { path: 'consejos-guia/:id', loadComponent: () => import('./pages/consejos-guia/consejos-guia.page').then((m) => m.ConsejosGuiaPage) },
+  { path: 'respiracion', loadComponent: () => import('./pages/respiracion/respiracion.page').then(m => m.RespiracionPage) },
+
 
   // Rutas secundarias
   { path: 'register', loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage) },

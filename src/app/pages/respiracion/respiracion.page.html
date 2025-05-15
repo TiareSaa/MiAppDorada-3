@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/actividades"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Respiración Guiada</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleAnimacion()">
+        {{ respirando ? 'Detener' : 'Iniciar' }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="contenedor-circulo">
+    <div class="circulo" [ngClass]="fase" *ngIf="respirando">
+      <span>{{ faseTexto }}</span>
+    </div>
+    <div class="instruccion" *ngIf="!respirando">
+      Presiona "Iniciar" para comenzar tu respiración guiada.
+    </div>
+  </div>
+</ion-content>

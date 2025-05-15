@@ -7,22 +7,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="actividades-content">
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="6" *ngFor="let categoria of categorias">
-        <ion-card (click)="abrirDetalle(categoria.nombre)" class="categoria-card" [style.border-color]="categoria.color">
-          <ion-card-header>
-            <ion-card-title>
-              <ion-icon [name]="categoria.icono" slot="start" [style.color]="categoria.color" size="large"></ion-icon>
-              {{ categoria.nombre }}
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            {{ categoria.descripcion }}
-          </ion-card-content>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let categoria of categorias">
+        <ion-card class="categoria-card" [style.background]="categoria.color" (click)="abrirDetalle(categoria.nombre)">
+          <ion-icon [name]="categoria.icono" class="categoria-icono"></ion-icon>
+          <p class="categoria-titulo">{{ categoria.nombre }}</p>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+

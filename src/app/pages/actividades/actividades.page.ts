@@ -1,52 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {
-  IonCard, IonCardHeader, IonCardContent, IonCardTitle,
-  IonCol, IonGrid, IonIcon, IonRow, IonContent, IonHeader, IonToolbar, IonTitle, IonBackButton, IonButtons } from '@ionic/angular/standalone';
+  IonContent, IonGrid, IonRow, IonCol,
+  IonCard, IonIcon, IonHeader, IonButtons, IonToolbar, IonTitle, IonBackButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-actividades',
   standalone: true,
-  imports: [IonButtons, IonBackButton, 
+  imports: [IonToolbar, IonButtons, IonHeader, IonTitle, IonBackButton,
     CommonModule, FormsModule,
-    IonCard, IonCardHeader, IonCardContent, IonCardTitle,
-    IonCol, IonGrid, IonIcon, IonRow,
-    IonContent, IonHeader, IonToolbar, IonTitle
+    IonContent, IonGrid, IonRow, IonCol,
+    IonCard, IonIcon
   ],
-  templateUrl: './actividades.page.html'
+  templateUrl: './actividades.page.html',
+  styleUrls: ['./actividades.page.scss']
 })
 export class ActividadesPage implements OnInit {
   categorias: any[] = [];
-  actividadesFiltradas: any[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const categoria = this.route.snapshot.paramMap.get('categoria');
-    this.http.get<any[]>('assets/data/actividades.json').subscribe(data => {
-      this.actividadesFiltradas = data.filter(a => a.categoria === categoria);
-
-      const agrupadas: any = {};
-      for (const actividad of data) {
-        if (!agrupadas[actividad.categoria]) {
-          agrupadas[actividad.categoria] = {
-            nombre: actividad.categoria,
-            descripcion: `Actividades relacionadas con ${actividad.categoria.toLowerCase()}.`,
-            color: actividad.color || '#607D8B',
-            icono: actividad.icono || 'book'
-          };
-        }
-      }
-
-      this.categorias = Object.values(agrupadas);
-    });
+    this.categorias = [
+      { nombre: 'Ejercicios Físicos', color: '#43a047', icono: 'walk' },
+      { nombre: 'Ejercicios Mentales', color: '#5e35b1', icono: 'bulb' },
+      { nombre: 'Juegos', color: '#039be5', icono: 'game-controller' },
+      { nombre: 'Relajación', color: '#00897b', icono: 'leaf' },
+      { nombre: 'Otras Actividades', color: '#ffb300', icono: 'book' }
+    ];
   }
 
   abrirDetalle(nombreCategoria: string) {
-    this.router.navigateByUrl(`/actividad-detalle/${nombreCategoria}`, {
+    this.router.navigateByUrl(`/actividad-detalle/${encodeURIComponent(nombreCategoria)}`, {
       state: { categoria: nombreCategoria }
     });
   }

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   IonContent, IonGrid, IonRow, IonCol,
-  IonCard, IonIcon, IonHeader, IonButtons, IonToolbar, IonTitle, IonBackButton } from '@ionic/angular/standalone';
+  IonCard, IonHeader, IonButtons, IonToolbar, IonTitle, IonBackButton} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-actividades',
@@ -12,7 +12,7 @@ import {
   imports: [IonToolbar, IonButtons, IonHeader, IonTitle, IonBackButton,
     CommonModule, FormsModule,
     IonContent, IonGrid, IonRow, IonCol,
-    IonCard, IonIcon
+    IonCard
   ],
   templateUrl: './actividades.page.html',
   styleUrls: ['./actividades.page.scss']
@@ -24,11 +24,11 @@ export class ActividadesPage implements OnInit {
 
   ngOnInit(): void {
     this.categorias = [
-      { nombre: 'Ejercicios Físicos', color: '#43a047', icono: 'walk' },
-      { nombre: 'Ejercicios Mentales', color: '#5e35b1', icono: 'bulb' },
-      { nombre: 'Juegos', color: '#039be5', icono: 'game-controller' },
-      { nombre: 'Relajación', color: '#00897b', icono: 'leaf' },
-      { nombre: 'Otras Actividades', color: '#ffb300', icono: 'book' }
+      { nombre: 'Ejercicios Físicos', color: '#43a047', imagen: 'walk' },
+      { nombre: 'Ejercicios Mentales', color: '#5e35b1', imagen: 'brain' },
+      { nombre: 'Juegos', color: '#039be5', imagen: 'puzzle' },
+      { nombre: 'Relajación', color: '#00897b', imagen: 'relajacion' },
+      { nombre: 'Otras Actividades', color: '#ffb300', imagen: 'recetario' }
     ];
   }
 

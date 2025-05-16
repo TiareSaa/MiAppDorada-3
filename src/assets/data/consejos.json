@@ -13,16 +13,18 @@
       "Entregar tus documentos al funcionario.",
       "Firmar si es necesario.",
       "Recibir el dinero.",
-      "Guardar el dinero en un lugar seguro."
+      "Guardar el dinero en uno o más lugares seguros.",
+      "Al salir, regresa a cass y no hables con extraños."
     ],
     "pasosImagen": [
-      "assets/img/pension/01.png",
-      "assets/img/pension/02.png",
-      "assets/img/pension/03.png",
-      "assets/img/pension/04.png",
-      "assets/img/pension/05.png",
-      "assets/img/pension/06.png",
-      "assets/img/pension/07.png"
+      "assets/pictogramas/pension/paso1.png",
+      "assets/pictogramas/pension/paso2.png",
+      "assets/pictogramas/pension/paso3.png",
+      "assets/pictogramas/pension/paso4.png",
+      "assets/pictogramas/pension/paso5.png",
+      "assets/pictogramas/pension/paso6.png",
+      "assets/pictogramas/pension/paso7.png",
+      "assets/pictogramas/pension/paso8.png"
     ]
   },
   {

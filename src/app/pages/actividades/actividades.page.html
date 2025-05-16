@@ -12,7 +12,7 @@
     <ion-row>
       <ion-col size="12" size-md="6" size-lg="4" *ngFor="let categoria of categorias">
         <ion-card class="categoria-card" [style.background]="categoria.color" (click)="abrirDetalle(categoria.nombre)">
-          <ion-icon [name]="categoria.icono" class="categoria-icono"></ion-icon>
+          <img class="categoria-imagen" [src]="'assets/icon/'+categoria.imagen+'.png'" alt="{{ categoria.nombre }}">
           <p class="categoria-titulo">{{ categoria.nombre }}</p>
         </ion-card>
       </ion-col>

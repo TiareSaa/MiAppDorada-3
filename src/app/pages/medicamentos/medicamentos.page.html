@@ -6,7 +6,7 @@
     <ion-title>Mis Medicamentos</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="abrirModal()">
-        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+        <img src="assets/icon/addwhite.png" alt="add" class="icono-input" />
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -29,10 +29,10 @@
 
       <ion-buttons slot="end">
         <ion-button color="primary" (click)="editarMedicamento(i)">
-          <ion-icon name="create-outline"></ion-icon>
+          <img src="assets/icon/edit.png" alt="edit" class="icono-input" />
         </ion-button>
         <ion-button color="danger" (click)="eliminarMedicamento(i)">
-          <ion-icon name="trash-outline"></ion-icon>
+          <img src="assets/icon/eliminar.png" alt="trash" class="icono-input" />
         </ion-button>
       </ion-buttons>
     </ion-item>

@@ -45,6 +45,13 @@
       max-width: 360px;
       padding: 0 20px;
   
+      .icono-input {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        object-fit: contain;
+        vertical-align: middle;
+      }
       ion-item {
         border-radius: 10px;
         margin-bottom: 15px;

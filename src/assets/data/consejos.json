@@ -164,10 +164,10 @@
     "color": "#8BC34A",
     "icono": "phone-portrait",
     "pasosTexto": [
-      "Encender el celular.",
-      "Desbloquear la pantalla.",
-      "Abrir la aplicación deseada.",
-      "Usar el celular con precaución."
+      "Mantener el celular cargado.",
+      "No compartir información personal.",
+      "Usar contraseñas seguras.",
+      "Instalar aplicaciones de confianza."
     ],
     "pasosImagen": [
       "assets/img/celular/01.png",
@@ -176,6 +176,7 @@
       "assets/img/celular/04.png"
     ]
   }
+  
 ]
 
 

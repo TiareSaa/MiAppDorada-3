@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -10,19 +11,33 @@ export class AuthService {
   private userSubject = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject.asObservable();
 
-  constructor(private auth: Auth, private router: Router) {
+  constructor(
+    private auth: Auth,
+    private firestore: Firestore,
+    private router: Router
+  ) {
     this.auth.onAuthStateChanged((user) => {
       this.userSubject.next(user);
     });
   }
 
   // Registro
-  async register(email: string, password: string): Promise<void> {
+  async register(name: string, email: string, password: string) {
     try {
-      await createUserWithEmailAndPassword(this.auth, email, password);
-      this.router.navigate(['/dashboard']);
+      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+      const uid = userCredential.user.uid;
+
+      // Guardar en Firestore
+      await setDoc(doc(this.firestore, 'usuarios', uid), {
+        nombre: name,
+        email: email,
+        uid: uid,
+        creado: new Date()
+      });
+
+      return uid;
     } catch (error) {
-      console.error('Error al registrar:', error);
+      console.error('Error en el registro:', error);
       throw error;
     }
   }

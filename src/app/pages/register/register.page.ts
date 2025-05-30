@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,10 @@ export class RegisterPage {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, // Asegúrate de que AuthService esté importado correctamente
+    private router: Router) {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -25,14 +29,18 @@ export class RegisterPage {
     });
   }
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.registerForm.valid && this.passwordsMatch()) {
-      // Simulación de registro exitoso
+async onSubmit() {
+  this.submitted = true;
+  if (this.registerForm.valid && this.passwordsMatch()) {
+    const { name, email, password } = this.registerForm.value;
+    try {
+      await this.authService.register(name, email, password);
       this.router.navigateByUrl('/dashboard');
+    } catch (error) {
+      console.error('Error al registrar usuario:', error);
     }
   }
-
+}
   passwordsMatch(): boolean {
     return this.registerForm.value.password === this.registerForm.value.confirmPassword;
   }

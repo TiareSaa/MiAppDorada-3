@@ -23,12 +23,19 @@ export class RegisterPage {
     private authService: AuthService, // Asegúrate de que AuthService esté importado correctamente
     private toastController: ToastController,
     private router: Router) {
-    this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-    });
+  
+this.registerForm = this.fb.group({
+    name: ['', Validators.required],
+    lastname: ['', Validators.required],
+    nickname: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
+    birthdate: ['', Validators.required],
+    gender: ['', Validators.required],
+    city: ['', Validators.required],
+});
+    
   }
 
 async onSubmit() {

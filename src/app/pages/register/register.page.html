@@ -10,33 +10,81 @@
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="formulario">
 
+      <!-- Nombre -->
       <ion-item>
         <img src="assets/icon/person.png" alt="person" class="icono-input" />
-        <ion-input placeholder="Nombre completo" type="text" formControlName="name"></ion-input>
+        <ion-input placeholder="Nombre" type="text" formControlName="name"></ion-input>
       </ion-item>
 
+      <!-- Apellido -->
+      <ion-item>
+        <img src="assets/icon/person.png" alt="person" class="icono-input" />
+        <ion-input placeholder="Apellido" type="text" formControlName="lastname"></ion-input>
+      </ion-item>
+
+      <!-- Apodo -->
+      <ion-item>
+        <img src="assets/icon/user.png" alt="nickname" class="icono-input" />
+        <ion-input placeholder="Apodo" type="text" formControlName="nickname"></ion-input>
+      </ion-item>
+
+      <!-- Email -->
       <ion-item>
         <img src="assets/icon/email.png" alt="email" class="icono-input" />
         <ion-input placeholder="Correo electrónico" type="email" formControlName="email"></ion-input>
       </ion-item>
 
+      <!-- Contraseña -->
       <ion-item>
         <img src="assets/icon/key.png" alt="password" class="icono-input" />
         <ion-input placeholder="Contraseña" type="password" formControlName="password"></ion-input>
       </ion-item>
 
+      <!-- Confirmar contraseña -->
       <ion-item>
         <img src="assets/icon/key.png" alt="password" class="icono-input" />
         <ion-input placeholder="Confirmar contraseña" type="password" formControlName="confirmPassword"></ion-input>
       </ion-item>
 
+      <!-- Validación contraseñas -->
       <ion-text color="danger" *ngIf="submitted && !passwordsMatch()">
         <p class="ion-padding-start">Las contraseñas no coinciden</p>
       </ion-text>
 
+      <!-- Fecha de nacimiento -->
+      <ion-item>
+        <img src="assets/icon/calendar.png" alt="calendar" class="icono-input" />
+        <ion-input placeholder="Selecciona o escribe la fecha"
+          formControlName="birthdate" 
+          type="date"
+          picker-format="DD-MM-YYYY">
+          
+        </ion-input>
+      </ion-item>
+
+      <!-- Género -->
+      <ion-item>
+        <img src="assets/icon/gender.png" alt="gender" class="icono-input" />
+        <ion-select placeholder="Género" formControlName="gender">
+          <ion-select-option value="femenino">Femenino</ion-select-option>
+          <ion-select-option value="masculino">Masculino</ion-select-option>
+          <ion-select-option value="otro">Otro</ion-select-option>
+          <ion-select-option value="prefiere-no-decir">Prefiere no decir</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Ciudad -->
+      <ion-item>
+        <img src="assets/icon/location.png" alt="city" class="icono-input" />
+        <ion-input placeholder="Ciudad" type="text" formControlName="city"></ion-input>
+      </ion-item>
+
+      <!-- Botón Registrar -->
       <ion-button expand="block" type="submit" class="btn-register">REGISTRARSE</ion-button>
 
+      <!-- Enlace a Login -->
       <p class="login-link">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí</a></p>
+
     </form>
   </div>
 </ion-content>

@@ -1,0 +1,12 @@
+.profile-photo {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+}

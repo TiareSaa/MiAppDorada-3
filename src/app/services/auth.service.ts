@@ -68,4 +68,22 @@ export class AuthService {
   getCurrentUser(): User | null {
     return this.auth.currentUser;
   }
+  // Eliminar cuenta
+  async deleteAccount(): Promise<void> {
+    const user = this.getCurrentUser();
+    if (user) {
+      try {
+        // Eliminar documento de Firestore
+        await setDoc(doc(this.firestore, 'usuarios', user.uid), {}, { merge: true });
+        // Cerrar sesión
+        await signOut(this.auth);
+        this.router.navigate(['/login']);
+      } catch (error) {
+        console.error('Error al eliminar la cuenta:', error);
+        throw error;
+      }
+    } else {
+      console.warn('No hay usuario autenticado para eliminar la cuenta.');
+    }
+  }
 }

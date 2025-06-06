@@ -5,55 +5,53 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="profile-photo" (click)="changePhoto()">
-    <img [src]="userData.photo || 'assets/icon/avatar-placeholder.png'" alt="Foto de perfil" />
-    <ion-button expand="block" size="small" fill="clear">Editar Foto</ion-button>
-  </div>
+  <form [formGroup]="profileForm">
+    <div class="profile-photo" (click)="changePhoto()">
+      <img [src]="profilePhoto" alt="Foto de perfil" />
+      <ion-button expand="block" size="small" fill="clear">Editar Foto</ion-button>
+    </div>
 
-  <ion-item>
-    <ion-label position="stacked">Apodo</ion-label>
-    <ion-input [(ngModel)]="userData.nickname"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Apodo</ion-label>
+      <ion-input formControlName="nickname"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Nombres</ion-label>
-    <ion-input [(ngModel)]="userData.firstName"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nombres</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Apellidos</ion-label>
-    <ion-input [(ngModel)]="userData.lastName"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Apellidos</ion-label>
+      <ion-input formControlName="lastname"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Email</ion-label>
-    <ion-input [(ngModel)]="userData.email" disabled></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input formControlName="email" ></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Fecha de nacimiento</ion-label>
-    <ion-datetime presentation="date" [(ngModel)]="userData.birthDate"></ion-datetime>
-  </ion-item>
+    <ion-item>
+      <ion-label >Fecha de nacimiento</ion-label>
+      <ion-datetime presentation="date" formControlName="birthdate"></ion-datetime>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Género</ion-label>
-    <ion-select [(ngModel)]="userData.gender">
-      <ion-select-option value="femenino">Femenino</ion-select-option>
-      <ion-select-option value="masculino">Masculino</ion-select-option>
-      <ion-select-option value="otro">Otro</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Género</ion-label>
+      <ion-select formControlName="gender">
+        <ion-select-option value="femenino">Femenino</ion-select-option>
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Ciudad</ion-label>
-    <ion-input [(ngModel)]="userData.city"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Ciudad</ion-label>
+      <ion-input formControlName="city"></ion-input>
+    </ion-item>
 
-  <ion-button expand="block" color="warning" (click)="logout()">Cerrar Sesión</ion-button>
-  <ion-button expand="block" color="danger" (click)="deleteAccount()">Eliminar Cuenta</ion-button>
+    <ion-button expand="block" color="primary" (click)="saveChanges()">Guardar Cambios</ion-button>
+    <ion-button expand="block" color="warning" (click)="logout()">Cerrar Sesión</ion-button>
+    <ion-button expand="block" color="danger" (click)="deleteAccount()">Eliminar Cuenta</ion-button>
+  </form>
 </ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-button expand="full" color="primary" (click)="saveChanges()">Guardar Cambios</ion-button>
-  </ion-toolbar>
-</ion-footer>

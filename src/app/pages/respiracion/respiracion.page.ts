@@ -47,7 +47,7 @@ actualizarFase() {
       this.faseTexto = 'Inhala';
       break;
     case 'sostén':
-      this.faseTexto = 'Sostén';
+      this.faseTexto = 'Mantén la respiración';
       break;
     case 'exhala':
       this.faseTexto = 'Exhala';

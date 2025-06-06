@@ -27,13 +27,13 @@ export class RegisterPage {
 this.registerForm = this.fb.group({
     name: ['', Validators.required],
     lastname: ['', Validators.required],
-    nickname: ['', Validators.required],
+    nickname: [''],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required],
     birthdate: ['', Validators.required],
-    gender: ['', Validators.required],
-    city: ['', Validators.required],
+    gender: [''],
+    city: [''],
 });
     
   }
@@ -45,10 +45,10 @@ async onSubmit() {
     return;
   }
 
-  const { name, email, password } = this.registerForm.value;
+  const { name, lastname, nickname, email, password, birthdate, gender, city } = this.registerForm.value;
 
   try {
-    await this.authService.register(name, email, password);
+    await this.authService.register(name, lastname, nickname, email, password, birthdate, gender, city);
 
     const toast = await this.toastController.create({
       message: 'Usuario registrado exitosamente. Inicia sesión.',

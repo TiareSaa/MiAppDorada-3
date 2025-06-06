@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, last } from 'rxjs';
 import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
@@ -22,7 +22,16 @@ export class AuthService {
   }
 
   // Registro
-  async register(name: string, email: string, password: string) {
+  async register(
+    name: string, 
+    lastname: string, 
+    nickname: string, 
+    email: string, 
+    password: string, 
+    birthdate:string, 
+    gender:string, 
+    city:string
+  ){
     try {
       const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
       const uid = userCredential.user.uid;
@@ -30,8 +39,14 @@ export class AuthService {
       // Guardar en Firestore
       await setDoc(doc(this.firestore, 'usuarios', uid), {
         nombre: name,
+        apellidos: lastname,
+        nickname: nickname, 
         email: email,
+        birthdate: birthdate,
+        gender: gender,
+        city: city,
         uid: uid,
+        
         creado: new Date()
       });
 

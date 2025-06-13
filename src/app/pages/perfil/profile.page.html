@@ -6,50 +6,111 @@
 
 <ion-content class="ion-padding">
   <form [formGroup]="profileForm">
+    <!-- Foto de perfil -->
     <div class="profile-photo" (click)="changePhoto()">
       <img [src]="profilePhoto" alt="Foto de perfil" />
       <ion-button expand="block" size="small" fill="clear">Editar Foto</ion-button>
     </div>
 
+    <!-- Apodo -->
     <ion-item>
       <ion-label position="stacked">Apodo</ion-label>
-      <ion-input formControlName="nickname"></ion-input>
+      <ion-input
+        [readonly]="!isFieldEditable('nickname')"
+        [value]="getFieldValue('nickname')"
+        (ionInput)="setFieldValue('nickname', $event.detail.value)">
+      </ion-input>
+      <ion-button fill="clear" slot="end" size="small" (click)="toggleEdit('nickname')">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
     </ion-item>
 
+    <!-- Nombres (no editable) -->
     <ion-item>
       <ion-label position="stacked">Nombres</ion-label>
-      <ion-input formControlName="name"></ion-input>
+      <ion-input [value]="getFieldValue('name')" readonly></ion-input>
     </ion-item>
 
+    <!-- Apellidos (no editable) -->
     <ion-item>
       <ion-label position="stacked">Apellidos</ion-label>
-      <ion-input formControlName="lastname"></ion-input>
+      <ion-input [value]="getFieldValue('lastname')" readonly></ion-input>
     </ion-item>
 
+    <!-- Email (no editable) -->
     <ion-item>
       <ion-label position="stacked">Email</ion-label>
-      <ion-input formControlName="email" ></ion-input>
+      <ion-input [value]="getFieldValue('email')" readonly></ion-input>
     </ion-item>
 
+    <!-- Fecha de nacimiento -->
     <ion-item>
-      <ion-label >Fecha de nacimiento</ion-label>
-      <ion-datetime presentation="date" formControlName="birthdate"></ion-datetime>
+      <ion-label>Fecha de nacimiento</ion-label>
+      <ion-datetime
+        [disabled]="!isFieldEditable('birthdate')"
+        presentation="date"
+        [value]="getFieldValue('birthdate')"
+        (ionChange)="setBirthdateFromEvent($event)">
+      </ion-datetime>
+      <ion-button fill="clear" slot="end" size="small" (click)="toggleEdit('birthdate')">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
     </ion-item>
 
+    <!-- Género -->
     <ion-item>
       <ion-label position="stacked">Género</ion-label>
-      <ion-select formControlName="gender">
+      <ion-select
+        [disabled]="!isFieldEditable('gender')"
+        [value]="getFieldValue('gender')"
+        (ionChange)="setFieldValue('gender', $event.detail.value)">
         <ion-select-option value="femenino">Femenino</ion-select-option>
         <ion-select-option value="masculino">Masculino</ion-select-option>
         <ion-select-option value="otro">Otro</ion-select-option>
       </ion-select>
+      <ion-button fill="clear" slot="end" size="small" (click)="toggleEdit('gender')">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
     </ion-item>
 
+    <!-- Ciudad -->
     <ion-item>
       <ion-label position="stacked">Ciudad</ion-label>
-      <ion-input formControlName="city"></ion-input>
+      <ion-input
+        [readonly]="!isFieldEditable('city')"
+        [value]="getFieldValue('city')"
+        (ionInput)="setFieldValue('city', $event.detail.value)">
+      </ion-input>
+      <ion-button fill="clear" slot="end" size="small" (click)="toggleEdit('city')">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
     </ion-item>
 
+    <!-- Cuidador Principal -->
+    <ion-item lines="full">
+      <ion-label class="section-title">Cuidador Principal</ion-label>
+    </ion-item>
+
+    <div formGroupName="mainCaregiver">
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Teléfono</ion-label>
+        <ion-input formControlName="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo Electrónico</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+    </div>
+
+    <!-- Botón para editar en modal -->
+    <ion-button expand="block" color="medium" (click)="openCaregiverModal()">Editar Cuidador</ion-button>
+
+
+    <!-- Botones -->
     <ion-button expand="block" color="primary" (click)="saveChanges()">Guardar Cambios</ion-button>
     <ion-button expand="block" color="warning" (click)="logout()">Cerrar Sesión</ion-button>
     <ion-button expand="block" color="danger" (click)="deleteAccount()">Eliminar Cuenta</ion-button>

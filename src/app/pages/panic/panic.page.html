@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>panic</ion-title>
+  <ion-toolbar color="danger">
+    <ion-title>Botón de Pánico</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">panic</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="panic-wrapper">
+    <ion-button expand="block" color="danger" size="large" (click)="triggerPanic()">
+      <ion-card-title>Botón de Pánico</ion-card-title>
+      ¡Emergencia!
+    </ion-button>
+  </div>
 </ion-content>

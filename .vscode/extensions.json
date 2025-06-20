@@ -1,6 +1,6 @@
 {
-    "recommendations": [
-      "ionic.ionic",
-      "esbenp.prettier-vscode"
-    ]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "Webnative.webnative"
+  ]
 }

@@ -10,8 +10,7 @@
 <ion-content class="ion-padding">
   <img [src]="evento?.imagen" alt="Imagen del evento" />
 
-  <p><strong>Fecha:</strong> {{ evento?.fecha }}</p>
-  <p><strong>Hora:</strong> {{ evento?.hora }}</p>
+  <ion-card-subtitle>{{ evento.fechaFormateada }} - {{ evento.hora }}</ion-card-subtitle>
   <p><strong>Lugar:</strong> {{ evento?.lugar }}</p>
   <p><strong>Descripción:</strong> {{ evento?.descripcion }}</p>
 

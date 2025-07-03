@@ -5,6 +5,8 @@ import { ModalController } from '@ionic/angular';
 import { ModalPanoramaComponent } from 'src/app/components/modals/modal-panorama/modal-panorama.component';
 import { HttpClient } from '@angular/common/http';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonGrid, IonCol, IonCardTitle, IonCardContent, IonCardSubtitle, IonCardHeader, IonRow, IonSearchbar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { PanoramasService } from 'src/app/services/panorama.service';
+import { Timestamp } from 'firebase/firestore';
 
 @Component({
   selector: 'app-panoramas',
@@ -19,15 +21,22 @@ export class PanoramasPage implements OnInit {
   panoramasOriginales: any[] = [];
   filtro: string = '';
 
-  constructor(private modalCtrl: ModalController, private http: HttpClient) {}
+  constructor(private panoramasService: PanoramasService, private modalCtrl: ModalController) {}
 
   ngOnInit() {
-    this.http.get<any[]>('assets/data/eventos.json').subscribe(data => {
-      this.panoramas = data;
-      this.panoramasOriginales = [...data];
+    this.panoramasService.getPanoramas().subscribe((data: any[]) => {
+      this.panoramas = data.map((p: any) => {
+        if (p.fecha instanceof Timestamp) {
+          const dateObj = p.fecha.toDate();
+          p.fechaFormateada = this.formatearFecha(dateObj);
+          p.hora = this.formatearHora(dateObj);
+        }
+        return p;
+      });
+
+      this.panoramasOriginales = [...this.panoramas];
     });
   }
-
   async abrirDetalle(evento: any) {
     const modal = await this.modalCtrl.create({
       component: ModalPanoramaComponent,
@@ -47,6 +56,17 @@ export class PanoramasPage implements OnInit {
         p.titulo.toLowerCase().includes(searchTerm)
       );
     }
+  }
+    formatearFecha(fecha: Date): string {
+    return fecha.toLocaleDateString('es-CL', {
+      weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+    });
+  }
+
+    formatearHora(fecha: Date): string {
+    return fecha.toLocaleTimeString('es-CL', {
+      hour: '2-digit', minute: '2-digit'
+    });
   }
 }
 

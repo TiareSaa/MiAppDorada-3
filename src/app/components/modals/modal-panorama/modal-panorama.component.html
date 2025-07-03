@@ -14,7 +14,5 @@
   <p><strong>Lugar:</strong> {{ evento?.lugar }}</p>
   <p><strong>Descripción:</strong> {{ evento?.descripcion }}</p>
 
-  <ion-button expand="block" color="success" *ngIf="evento?.requiereInscripcion" (click)="inscribirse()">
-    Inscribirse
-  </ion-button>
+  <ion-button expand="full" color="primary" (click)="verEnMapa()">Ver en el mapa</ion-button>
 </ion-content>

@@ -1,3 +1,39 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content" side="start" menuId="main-menu">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Mi App Dorada</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="navigateTo('/perfil')">
+            <img src="assets/icon/perfil.png" slot="start" width="24" height="24" style="margin-right: 10px;" />
+            <ion-label>Mi Perfil</ion-label>
+          </ion-item>
+
+          <ion-item button (click)="navigateTo('/configuracion')">
+            <img src="assets/icon/config.png" slot="start" width="24" height="24" style="margin-right: 10px;" />
+            <ion-label>Configuración</ion-label>
+          </ion-item>
+
+          <ion-item button (click)="navigateTo('/informacion')">
+            <img src="assets/icon/informacion.png" slot="start" width="24" height="24" style="margin-right: 10px;" />
+            <ion-label>Información</ion-label>
+          </ion-item>
+
+          <ion-item button (click)="logout()">
+            <img src="assets/icon/salida.png" slot="start" width="24" height="24" style="margin-right: 10px;"/>
+            <ion-label>Cerrar sesión</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>

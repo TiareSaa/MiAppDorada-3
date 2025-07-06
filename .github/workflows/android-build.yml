@@ -22,16 +22,19 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli
+
       - name: Build App
-        run: ionic build  # o npm run build
+        run: ionic build
 
       - name: Sync Capacitor
         run: npx cap sync android
 
       - name: Build APK
         run: |
-          cd android
-          ./gradlew assembleDebug
+                cd android
+                ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

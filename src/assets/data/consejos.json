@@ -38,13 +38,15 @@
       "Abrir la aplicación WhatsApp.",
       "Elegir un contacto.",
       "Escribir tu mensaje.",
-      "Presionar el ícono de enviar."
+      "Presionar el ícono de enviar.",
+      "Mensaje enviado."
     ],
     "pasosImagen": [
-      "assets/img/whatsapp/01.png",
-      "assets/img/whatsapp/02.png",
-      "assets/img/whatsapp/03.png",
-      "assets/img/whatsapp/04.png"
+      "assets/pictogramas/mensaje/paso1.png",
+      "assets/pictogramas/mensaje/paso2.png",
+      "assets/pictogramas/mensaje/paso3.png",
+      "assets/pictogramas/mensaje/paso4.png",
+      "assets/pictogramas/mensaje/paso5.png"
     ]
   }
   ,
@@ -57,15 +59,15 @@
     "icono": "call",
     "pasosTexto": [
       "Abrir la aplicación de teléfono.",
-      "Marcar el número deseado.",
+      "Marcar el número o contacto deseado.",
       "Presionar el botón de llamar.",
       "Esperar a que contesten."
     ],
     "pasosImagen": [
-      "assets/img/llamada/01.png",
-      "assets/img/llamada/02.png",
-      "assets/img/llamada/03.png",
-      "assets/img/llamada/04.png"
+      "assets/pictogramas/llamada/paso1.png",
+      "assets/pictogramas/llamada/paso2.png",
+      "assets/pictogramas/llamada/paso3.png",
+      "assets/pictogramas/llamada/paso4.png"
     ]
   }
   ,
@@ -84,10 +86,11 @@
       "Hacer clic en 'Enviar'."
     ],
     "pasosImagen": [
-      "assets/img/correo/01.png",
-      "assets/img/correo/02.png",
-      "assets/img/correo/03.png",
-      "assets/img/correo/04.png"
+      "assets/pictogramas/correo/paso1.png",
+      "assets/pictogramas/correo/paso2.png",
+      "assets/pictogramas/correo/paso3.png",
+      "assets/pictogramas/correo/paso4.png",
+      "assets/pictogramas/correo/paso5.png"
     ]
   }
   ,
@@ -100,17 +103,19 @@
     "icono": "card",
     "pasosTexto": [
       "Insertar la tarjeta en el cajero.",
-      "Seleccionar el idioma.",
+      "Digite su clave.",
       "Elegir la opción de retiro.",
       "Seleccionar la cuenta.",
       "Ingresar la cantidad a retirar.",
       "Retirar el dinero y la tarjeta."
     ],
     "pasosImagen": [
-      "assets/img/cajero/01.png",
-      "assets/img/cajero/02.png",
-      "assets/img/cajero/03.png",
-      "assets/img/cajero/04.png"
+      "assets/pictogramas/cajero/paso1.png",
+      "assets/pictogramas/cajero/paso2.png",
+      "assets/pictogramas/cajero/paso3.png",
+      "assets/pictogramas/cajero/paso4.png",
+      "assets/pictogramas/cajero/paso5.png",
+      "assets/pictogramas/cajero/paso6.png"
     ]
   }
   ,
@@ -122,16 +127,16 @@
     "color": "#3F51B5",
     "icono": "bus",
     "pasosTexto": [
-      "Esperar en la parada.",
-      "Subir al vehículo.",
+      "Esperar en el paradero del autobus.",
+      "Subir al bus.",
       "Pagar el pasaje.",
       "Elegir un lugar para sentarse."
     ],
     "pasosImagen": [
-      "assets/img/transporte/01.png",
-      "assets/img/transporte/02.png",
-      "assets/img/transporte/03.png",
-      "assets/img/transporte/04.png"
+      "assets/pictogramas/transporte/paso1.png",
+      "assets/pictogramas/transporte/paso2.png",
+      "assets/pictogramas/transporte/paso3.png",
+      "assets/pictogramas/transporte/paso4.png"
     ]
   }
   ,
@@ -149,34 +154,32 @@
       "Pagar en la caja."
     ],
     "pasosImagen": [
-      "assets/img/compras/01.png",
-      "assets/img/compras/02.png",
-      "assets/img/compras/03.png",
-      "assets/img/compras/04.png"
+      "assets/pictogramas/compras/paso1.png",
+      "assets/pictogramas/compras/paso2.png",
+      "assets/pictogramas/compras/paso3.png",
+      "assets/pictogramas/compras/paso4.png"
     ]
   }
   ,
   {
     "id": 8,
-    "titulo": "Usar el celular",
-    "descripcion": "Cómo usar un celular de forma segura.",
+    "titulo": "Contra estafas",
+    "descripcion": "Cómo protegerte frente a estafas.",
     "categoria": "Tecnología",
     "color": "#8BC34A",
     "icono": "phone-portrait",
     "pasosTexto": [
-      "Mantener el celular cargado.",
-      "No compartir información personal.",
-      "Usar contraseñas seguras.",
-      "Instalar aplicaciones de confianza."
+      "Desconfía de llamadas de números desconocidos.",
+      "Evita dar información personal en redes sociales.",
+      "Verifica siempre los mensajes y correos.",
+      "Nunca entregues tu clave ni tu tarjeta crédito o débito."
     ],
     "pasosImagen": [
-      "assets/img/celular/01.png",
-      "assets/img/celular/02.png",
-      "assets/img/celular/03.png",
-      "assets/img/celular/04.png"
+      "assets/pictogramas/estafas/paso1.png",
+      "assets/pictogramas/estafas/paso2.png",
+      "assets/pictogramas/estafas/paso3.png",
+      "assets/pictogramas/estafas/paso4.png"
     ]
   }
   
 ]
-
-

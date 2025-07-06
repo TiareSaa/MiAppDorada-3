@@ -11,16 +11,24 @@
   <p class="subtitulo">Aquí puedes revisar tus próximas consultas</p>
 
   <ion-list>
-    <ion-item *ngFor="let cita of citas; let i = index" (click)="editarCita(i)">
+    <ion-item *ngFor="let cita of citas; let i = index">
       <ion-label>
         <h3>{{ cita.fecha }}</h3>
         <p><strong>Hora:</strong> {{ cita.hora }}</p>
         <p><strong>Médico:</strong> {{ cita.medico }}</p>
         <p><strong>Lugar:</strong> {{ cita.lugar }}</p>
       </ion-label>
+
+      <ion-button fill="clear" size="small" slot="end" (click)="editarCita(i)">
+        <img src="assets/icon/edit.png" width="20" height="20" alt="Editar">
+      </ion-button>
+
+      <ion-button fill="clear" size="small" slot="end" (click)="eliminarCita(i)">
+        <img src="assets/icon/eliminar.png" width="20" height="20" alt="Eliminar">
+      </ion-button>
     </ion-item>
+
   </ion-list>
-  
 
   <ion-button expand="block" color="primary" fill="outline" (click)="abrirModal()">
     <ion-icon name="add-circle-outline" slot="start"></ion-icon>

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { ModalEjercicioComponent } from '../../components/modals/modal-ejercicio/modal-ejercicio.component';
 import {
   IonCard, IonCardHeader, IonCardContent, IonCardTitle,
   IonCol, IonGrid, IonRow, IonBackButton, IonButtons, IonHeader, IonTitle, IonToolbar, IonContent
@@ -17,14 +19,19 @@ import {
     CommonModule, FormsModule,
     IonCard, IonCardHeader, IonCardContent, IonCardTitle,
     IonCol, IonGrid, IonRow,
-    IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton
+    IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton,
+    ModalEjercicioComponent
   ]
 })
 export class ActividadDetallePage implements OnInit {
   categoriaSeleccionada: string = '';
   actividadesFiltradas: any[] = [];
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private modalController: ModalController
+  ) {
     const nav = this.router.getCurrentNavigation();
     const state = nav?.extras?.state as { categoria: string };
     if (state?.categoria) {
@@ -38,13 +45,29 @@ export class ActividadDetallePage implements OnInit {
     });
   }
 
-  abrirGuia(actividad: any) {
-  if (actividad.titulo === 'Respiración Guiada') {
-    this.router.navigateByUrl('/respiracion');
-  } else {
-    this.router.navigateByUrl('/actividad-guia', {
-      state: { actividad }
-    });
+  esEjercicioFisico(): boolean {
+    return this.categoriaSeleccionada === 'Ejercicios Físicos';
   }
-}
+
+  abrirGuia(actividad: any) {
+    if (actividad.titulo === 'Respiración Guiada') {
+      this.router.navigateByUrl('/respiracion');
+    } else {
+      this.router.navigateByUrl('/actividad-guia', {
+        state: { actividad }
+      });
+    }
+  }
+
+  async abrirModal(titulo: string, descripcion: string, videoUrl: string) {
+    const modal = await this.modalController.create({
+      component: ModalEjercicioComponent,
+      componentProps: {
+        titulo,
+        descripcion,
+        videoUrl
+      }
+    });
+    return await modal.present();
+  }
 }

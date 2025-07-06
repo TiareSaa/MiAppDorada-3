@@ -22,6 +22,7 @@ export const routes: Routes = [
   { path: 'respiracion', loadComponent: () => import('./pages/respiracion/respiracion.page').then(m => m.RespiracionPage) },
 
 
+
   // Rutas secundarias
   { path: 'register', loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage) },
   

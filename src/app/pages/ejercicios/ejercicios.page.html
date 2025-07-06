@@ -1,59 +1,48 @@
 <ion-header>
-  <ion-toolbar class="header-verde">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/actividades"></ion-back-button>
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ categoriaSeleccionada }}</ion-title>
+    <ion-title>Ejercicios Físicos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-grid>
-    <!-- Si la categoría es Ejercicios Físicos, mostramos directamente los ejercicios -->
-<ng-container *ngIf="esEjercicioFisico(); else mostrarGridNormal">
+
   <ion-card class="ejercicio-card color-brazos" (click)="abrirModal('Movilidad Suave de Brazos y Hombros', 'Rutina en silla para brazos y hombros.', 'https://www.youtube.com/embed/1yi3iK7vt20')">
     <ion-card-header>
       <ion-card-title>🧍‍♀️ Ejercicio 1: Brazos</ion-card-title>
     </ion-card-header>
-    <ion-card-content>Rutina en silla para brazos y hombros.</ion-card-content>
+    <ion-card-content>
+      Rutina en silla para brazos y hombros.
+    </ion-card-content>
   </ion-card>
 
   <ion-card class="ejercicio-card color-rodillas" (click)="abrirModal('Evitando dolor en las rodillas', 'Ejercicio suave para fortalecer las rodillas y reducir molestias.', 'https://www.youtube.com/embed/7lUrTsCj-JU')">
     <ion-card-header>
       <ion-card-title>🦵 Ejercicio 2: Rodillas</ion-card-title>
     </ion-card-header>
-    <ion-card-content>Ejercicio suave para fortalecer las rodillas y reducir molestias.</ion-card-content>
+    <ion-card-content>
+      Ejercicio suave para fortalecer las rodillas y reducir molestias.
+    </ion-card-content>
   </ion-card>
 
   <ion-card class="ejercicio-card color-cuello" (click)="abrirModal('Estiramiento de Cuello', 'Relaja los músculos del cuello.', 'https://www.youtube.com/embed/wWzIZwaz604')">
     <ion-card-header>
       <ion-card-title>💆 Ejercicio 3: Cuello</ion-card-title>
     </ion-card-header>
-    <ion-card-content>Relaja los músculos del cuello.</ion-card-content>
+    <ion-card-content>
+      Relaja los músculos del cuello.
+    </ion-card-content>
   </ion-card>
 
   <ion-card class="ejercicio-card color-piernas" (click)="abrirModal('Mejorando la circulación de Piernas', 'Activa la circulación de tus piernas con movimientos suaves.', 'https://www.youtube.com/embed/qH37W02iUso')">
     <ion-card-header>
       <ion-card-title>🚶 Ejercicio 4: Piernas</ion-card-title>
     </ion-card-header>
-    <ion-card-content>Activa la circulación de tus piernas con movimientos suaves.</ion-card-content>
+    <ion-card-content>
+      Activa la circulación de tus piernas con movimientos suaves.
+    </ion-card-content>
   </ion-card>
-</ng-container>
 
-<ng-template #mostrarGridNormal>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" size-md="6" *ngFor="let actividad of actividadesFiltradas">
-        <ion-card (click)="abrirGuia(actividad)" class="subactividad-card">
-          <ion-card-header>
-            <ion-card-title>{{ actividad.titulo }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            {{ actividad.descripcion }}
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ng-template>
-
+</ion-content>

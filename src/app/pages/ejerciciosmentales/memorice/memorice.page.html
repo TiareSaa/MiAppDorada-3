@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar class="header-verde">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/actividad-detalle/Ejercicios Mentales"></ion-back-button>
+    </ion-buttons>
+    <ion-title>🧠 Memorice de Naipes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let card of board; index as i">
+        <ion-card (click)="flipCard(i)" class="card">
+          <ion-card-content>
+            <img
+              [src]="getCardImage(i, card)"
+              [class.flipped]="isFlipped(i)"
+              alt="Carta"
+            />
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="score">Puntaje: {{ score }} / {{ totalPairs }}</div>
+
+  <div class="button-container">
+    <ion-button expand="block" color="tertiary" (click)="resetGame()">
+      Reiniciar Juego
+    </ion-button>
+    <ion-button expand="block" color="light" routerLink="/actividad-detalle/Ejercicios Mentales">
+    ⬅️ Volver a Ejercicios Mentales
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,51 @@
+.content-bg {
+  --background: #f0f4f8;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 40px;
+}
+
+.secuencia {
+  font-size: 2.2rem;
+  letter-spacing: 15px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.secuencia-input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background: #ffffff;
+}
+
+.mensaje {
+  font-size: 1.1rem;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.success {
+  color: green;
+}
+
+.danger {
+  color: red;
+}

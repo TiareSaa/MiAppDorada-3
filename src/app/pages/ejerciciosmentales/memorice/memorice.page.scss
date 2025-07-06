@@ -1,0 +1,23 @@
+.card {
+  img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  &.flipped img {
+    transform: rotateY(180deg);
+  }
+}
+
+.score {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.button-container {
+  margin: 20px;
+  text-align: center;
+}

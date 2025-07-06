@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar class="header-verde">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/actividad-detalle/Ejercicios Mentales"></ion-back-button>
+    </ion-buttons>
+    <ion-title>🧠 Secuencia de Números</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding content-bg">
+
+  <div class="contenedor">
+    <!-- Mostrar secuencia -->
+    <div *ngIf="mostrarSecuencia" class="secuencia">
+      {{ secuencia.join(' ') }}
+    </div>
+
+    <!-- Ingreso del usuario -->
+    <div *ngIf="!mostrarSecuencia" class="input-box">
+      <ion-input
+        [(ngModel)]="respuestaUsuario"
+        placeholder="Escribe la secuencia sin espacios"
+        class="secuencia-input">
+      </ion-input>
+
+      <ion-button expand="block" class="header-verde" (click)="verificar()">Verificar</ion-button>
+
+      <ion-text *ngIf="mensaje" [ngClass]="colorMensaje" class="mensaje">
+        {{ mensaje }}
+      </ion-text>
+    </div>
+
+    <ion-button expand="block" color="medium" (click)="reiniciar()">Reiniciar</ion-button>
+  </div>
+
+</ion-content>

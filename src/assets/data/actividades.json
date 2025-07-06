@@ -33,9 +33,10 @@
   "id": 104,
   "titulo": "Memorice de Naipes",
   "descripcion": "Entrena tu memoria encontrando pares iguales de cartas.",
-  "categoria": "Actividades Mentales",
+  "categoria": "Ejercicios Mentales",
   "color": "#00897b",
   "icono": "leaf",
+  "ruta": "/memorice",
   "pasosTexto": [],
   "pasosImagen": []
 },
@@ -47,6 +48,17 @@
   "color": "#00897b",
   "icono": "leaf",
   "ruta": "/juego-colores",
+  "pasosTexto": [],
+  "pasosImagen": []
+},
+{
+  "id": 106,
+  "titulo": "Secuencia de Números",
+  "descripcion": "Pon a prueba tu memoria recordando la secuencia de números.",
+  "categoria": "Ejercicios Mentales",
+  "color": "#00897b",
+  "icono": "leaf",
+  "ruta": "/secuencia-numeros",
   "pasosTexto": [],
   "pasosImagen": []
 }

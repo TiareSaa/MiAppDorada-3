@@ -50,18 +50,21 @@ export class ActividadDetallePage implements OnInit {
   }
 
   abrirGuia(actividad: any) {
-    if (actividad.ruta) {
-      this.router.navigateByUrl(actividad.ruta, {
-        state: { actividad }
-      });
-    } else if (actividad.titulo === 'Respiración Guiada') {
+    if (actividad.titulo === 'Respiración Guiada') {
       this.router.navigateByUrl('/respiracion');
+    } else if (actividad.titulo === 'Juego de Colores') {
+      this.router.navigateByUrl('/juego-colores');
+    } else if (actividad.titulo === 'Memorice de Naipes') {
+      this.router.navigateByUrl('/memorice');
+    } else if (actividad.titulo === 'Secuencia de Números') {
+      this.router.navigateByUrl('/secuencia-numeros');
     } else {
       this.router.navigateByUrl('/actividad-guia', {
         state: { actividad }
       });
     }
   }
+
 
 
   async abrirModal(titulo: string, descripcion: string, videoUrl: string) {

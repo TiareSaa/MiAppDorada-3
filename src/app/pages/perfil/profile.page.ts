@@ -7,14 +7,17 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { CaregiverModalComponent } from '../../components/modals/caregiver-modal/caregiver-modal.component';
-import { IonInput, IonButton, IonItem, IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonDatetime, IonSelect, IonSelectOption } from '@ionic/angular/standalone'; // Asegúrate de importar IonInput desde Ionic standalone si lo necesitas
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { ref, uploadString, getDownloadURL } from '@angular/fire/storage';
+import { getStorage } from '@angular/fire/storage';
+import { IonInput, IonButton, IonItem, IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonDatetime, IonSelect, IonSelectOption, IonButtons, IonBackButton } from '@ionic/angular/standalone'; // Asegúrate de importar IonInput desde Ionic standalone si lo necesitas
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonDatetime, IonIcon, IonContent, IonTitle, IonToolbar, IonHeader, IonSelect, IonSelectOption, CommonModule,
+  imports: [IonBackButton, IonButtons, IonDatetime, IonIcon, IonContent, IonTitle, IonToolbar, IonHeader, IonSelect, IonSelectOption, CommonModule,
   
     FormsModule,
     ReactiveFormsModule,
@@ -57,36 +60,33 @@ export class ProfilePage implements OnInit {
         name: [''],
         phone: [''],
         email: ['']
-      })
+      }),
     });
   }
 
   async ngOnInit() {
-    onAuthStateChanged(this.auth, async (user) => {
-      if (user) {
-        const docRef = doc(this.firestore, 'usuarios', user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          this.profileForm.patchValue({
-            nickname: data['nickname'] || '',
-            name: data['name'] || '',
-            lastname: data['lastname'] || '',
-            email: data['email'] || '',
-            birthdate: data['birthdate'] || '',
-            gender: data['gender'] || '',
-            city: data['city'] || '',
-            mainCaregiver: data['mainCaregiver'] || { name: '', phone: '', email: '' }
-          });
-          if (data['photo']) {
-            this.profilePhoto = data['photo'];
-          }
-        }
-      } else {
-        this.router.navigate(['/login']);
+  onAuthStateChanged(this.auth, async (user) => {
+    if (user) {
+      const docRef = doc(this.firestore, 'usuarios', user.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        this.profileForm.patchValue({
+          nickname: data['nickname'] || '',
+          name: data['name'] || '',
+          lastname: data['lastname'] || '',
+          email: data['email'] || '',
+          birthdate: data['birthdate'] || '',
+          gender: data['gender'] || '',
+          city: data['city'] || '',
+          mainCaregiver: data['mainCaregiver'] || { name: '', phone: '', email: '' }
+        });
       }
-    });
-  }
+    } else {
+      this.router.navigate(['/login']);
+    }
+  });
+}
 
   toggleEdit(field: string) {
     this.editableFields[field] = !this.editableFields[field];
@@ -112,15 +112,6 @@ export class ProfilePage implements OnInit {
     this.setFieldValue('birthdate', value);
   }
 
-  async changePhoto() {
-    const toast = await this.toastController.create({
-      message: 'Función de edición de foto no implementada aún',
-      duration: 2000,
-      position: 'middle',
-      color: 'medium'
-    });
-    await toast.present();
-  }
 
   async saveChanges() {
     const user = this.auth.currentUser;
@@ -186,4 +177,5 @@ export class ProfilePage implements OnInit {
 
     await modal.present();
   }
+ 
 }

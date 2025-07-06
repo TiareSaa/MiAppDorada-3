@@ -50,7 +50,11 @@ export class ActividadDetallePage implements OnInit {
   }
 
   abrirGuia(actividad: any) {
-    if (actividad.titulo === 'Respiración Guiada') {
+    if (actividad.ruta) {
+      this.router.navigateByUrl(actividad.ruta, {
+        state: { actividad }
+      });
+    } else if (actividad.titulo === 'Respiración Guiada') {
       this.router.navigateByUrl('/respiracion');
     } else {
       this.router.navigateByUrl('/actividad-guia', {
@@ -58,6 +62,7 @@ export class ActividadDetallePage implements OnInit {
       });
     }
   }
+
 
   async abrirModal(titulo: string, descripcion: string, videoUrl: string) {
     const modal = await this.modalController.create({

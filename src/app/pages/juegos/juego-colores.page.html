@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="header-verde">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/actividad-detalle/Juegos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>🎨 Juego de Colores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <div class="instruccion">
+    Encuentra el color diferente <br>
+    <strong>Nivel {{ nivel }}</strong>
+  </div>
+
+  <div class="grid" [style.gridTemplateColumns]="'repeat(' + gridSize + ', 1fr)'">
+    <div
+      class="cuadro"
+      *ngFor="let color of blocks; let i = index"
+      [style.background]="color"
+      (click)="seleccionar(i)">
+    </div>
+  </div>
+
+  <ion-button expand="block" color="medium" (click)="reiniciarJuego()">
+    🔄 Reiniciar Juego
+  </ion-button>
+</ion-content>

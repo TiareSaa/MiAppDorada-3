@@ -27,5 +27,28 @@
   "icono": "leaf",
   "pasosTexto": [],
   "pasosImagen": []
+},
+
+{
+  "id": 104,
+  "titulo": "Memorice de Naipes",
+  "descripcion": "Entrena tu memoria encontrando pares iguales de cartas.",
+  "categoria": "Actividades Mentales",
+  "color": "#00897b",
+  "icono": "leaf",
+  "pasosTexto": [],
+  "pasosImagen": []
+},
+{
+  "id": 105,
+  "titulo": "Juego de Colores",
+  "descripcion": "Un juego para aprender los colores y mejorar la memoria.",
+  "categoria": "Juegos",
+  "color": "#00897b",
+  "icono": "leaf",
+  "ruta": "/juego-colores",
+  "pasosTexto": [],
+  "pasosImagen": []
 }
+
 ]

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Editar Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="editForm">
+    <ion-item>
+      <ion-label position="stacked">Apodo</ion-label>
+      <ion-input formControlName="nickname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Fecha de nacimiento</ion-label>
+      <ion-datetime formControlName="birthdate" presentation="date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Género</ion-label>
+      <ion-select formControlName="gender">
+        <ion-select-option value="femenino">Femenino</ion-select-option>
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="otro">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Ciudad</ion-label>
+      <ion-input formControlName="city"></ion-input>
+    </ion-item>
+  </form>
+
+  <ion-button expand="block" color="success" (click)="guardar()">Guardar Cambios</ion-button>
+</ion-content>

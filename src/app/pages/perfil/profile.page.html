@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar class="header-amarillo">
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/dashboard"></ion-back-button>
     </ion-buttons>
@@ -25,14 +25,9 @@
     <!-- Nombres (no editable) -->
     <ion-item>
       <ion-label position="stacked">Nombres</ion-label>
-      <ion-input [value]="getFieldValue('name')" readonly></ion-input>
+      <ion-input [value]="getFieldValue('nombre')" readonly></ion-input>
     </ion-item>
 
-    <!-- Apellidos (no editable) -->
-    <ion-item>
-      <ion-label position="stacked">Apellidos</ion-label>
-      <ion-input [value]="getFieldValue('lastname')" readonly></ion-input>
-    </ion-item>
 
     <!-- Email (no editable) -->
     <ion-item>
@@ -41,18 +36,21 @@
     </ion-item>
 
     <!-- Fecha de nacimiento -->
+   
     <ion-item>
-      <ion-label>Fecha de nacimiento</ion-label>
+      <ion-label position="stacked">Fecha de nacimiento</ion-label>
+      <ion-text *ngIf="!isFieldEditable('birthdate')">
+        {{ getFieldValue('birthdate') | date: 'dd/MM/yyyy' }}
+      </ion-text>
+
       <ion-datetime
-        [disabled]="!isFieldEditable('birthdate')"
+        *ngIf="isFieldEditable('birthdate')"
         presentation="date"
         [value]="getFieldValue('birthdate')"
         (ionChange)="setBirthdateFromEvent($event)">
       </ion-datetime>
-      <ion-button fill="clear" slot="end" size="small" (click)="toggleEdit('birthdate')">
-        <ion-icon name="create-outline"></ion-icon>
-      </ion-button>
     </ion-item>
+
 
     <!-- Género -->
     <ion-item>
@@ -83,6 +81,9 @@
       </ion-button>
     </ion-item>
 
+    <ion-button expand="block" color="secondary" (click)="openEditProfileModal()">Editar Perfil</ion-button>
+
+
     <!-- Cuidador Principal -->
     <ion-item lines="full">
       <ion-label class="section-title">Cuidador Principal</ion-label>
@@ -104,12 +105,7 @@
     </div>
 
     <!-- Botón para editar en modal -->
-    <ion-button expand="block" color="medium" (click)="openCaregiverModal()">Editar Cuidador</ion-button>
+    <ion-button expand="block" color="secondary" (click)="openCaregiverModal()">Editar Cuidador</ion-button>
 
-
-    <!-- Botones -->
-    <ion-button expand="block" color="primary" (click)="saveChanges()">Guardar Cambios</ion-button>
-    <ion-button expand="block" color="warning" (click)="logout()">Cerrar Sesión</ion-button>
-    <ion-button expand="block" color="danger" (click)="deleteAccount()">Eliminar Cuenta</ion-button>
   </form>
 </ion-content>

@@ -7,17 +7,15 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { CaregiverModalComponent } from '../../components/modals/caregiver-modal/caregiver-modal.component';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
-import { ref, uploadString, getDownloadURL } from '@angular/fire/storage';
-import { getStorage } from '@angular/fire/storage';
-import { IonInput, IonButton, IonItem, IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonDatetime, IonSelect, IonSelectOption, IonButtons, IonBackButton } from '@ionic/angular/standalone'; // Asegúrate de importar IonInput desde Ionic standalone si lo necesitas
+import { ModalProfileEditComponent } from '../../components/modals/profile-edit/modal-profile-edit.component';
+import { IonInput, IonButton, IonItem, IonLabel, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonDatetime, IonSelect, IonSelectOption, IonButtons, IonBackButton, IonText } from '@ionic/angular/standalone'; // Asegúrate de importar IonInput desde Ionic standalone si lo necesitas
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonDatetime, IonIcon, IonContent, IonTitle, IonToolbar, IonHeader, IonSelect, IonSelectOption, CommonModule,
+  imports: [IonText, IonBackButton, IonButtons, IonDatetime, IonIcon, IonContent, IonTitle, IonToolbar, IonHeader, IonSelect, IonSelectOption, CommonModule,
   
     FormsModule,
     ReactiveFormsModule,
@@ -50,8 +48,8 @@ export class ProfilePage implements OnInit {
   ) {
     this.profileForm = this.fb.group({
       nickname: [''],
-      name: [''],
-      lastname: [''],
+      nombre: [''],
+      apellidos: [''],
       email: [''],
       birthdate: [''],
       gender: [''],
@@ -73,8 +71,8 @@ export class ProfilePage implements OnInit {
         const data = docSnap.data();
         this.profileForm.patchValue({
           nickname: data['nickname'] || '',
-          name: data['name'] || '',
-          lastname: data['lastname'] || '',
+          nombre: data['nombre'] || '',
+          apellidos: data['apellidos'] || '',
           email: data['email'] || '',
           birthdate: data['birthdate'] || '',
           gender: data['gender'] || '',
@@ -87,6 +85,29 @@ export class ProfilePage implements OnInit {
     }
   });
 }
+
+async openEditProfileModal() {
+  const modal = await this.modalController.create({
+    component: ModalProfileEditComponent,
+    componentProps: {
+      initialData: {
+        nickname: this.getFieldValue('nickname'),
+        birthdate: this.getFieldValue('birthdate'),
+        gender: this.getFieldValue('gender'),
+        city: this.getFieldValue('city')
+      }
+    }
+  });
+
+  await modal.present();
+
+  const { data } = await modal.onDidDismiss();
+  if (data) {
+    this.profileForm.patchValue(data); // actualiza el form con los datos del modal
+    await this.saveChanges(); // guarda en Firestore
+  }
+}
+
 
   toggleEdit(field: string) {
     this.editableFields[field] = !this.editableFields[field];
@@ -144,20 +165,6 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  async deleteAccount() {
-    const user = this.auth.currentUser;
-    if (user) {
-      await deleteUser(user);
-      const toast = await this.toastController.create({
-        message: 'Cuenta eliminada',
-        duration: 2000,
-        color: 'danger',
-        position: 'middle'
-      });
-      await toast.present();
-      this.router.navigate(['/login']);
-    }
-  }
 
   async openCaregiverModal() {
     const caregiver = this.profileForm.value.mainCaregiver || { name: '', phone: '', email: '' };

@@ -18,8 +18,10 @@
             <ion-card-title>{{ evento.titulo }}</ion-card-title>
             <ion-card-subtitle>{{ evento.fechaFormateada }} - {{ evento.hora }}</ion-card-subtitle>
             <p><strong>Lugar:</strong> {{ evento.lugar }}</p>
+            <p><strong>Categoría:</strong> {{ evento.categoria }}</p>
           </ion-card-header>
           <ion-card-content>
+            <p><strong>Descripción:</strong>
             {{ evento.descripcion }}
           </ion-card-content>
         </ion-card>

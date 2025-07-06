@@ -23,6 +23,7 @@ log.txt
 /platforms
 /plugins
 
+
 # Compiled output
 /dist
 /tmp
@@ -33,6 +34,7 @@ log.txt
 /node_modules
 npm-debug.log
 yarn-error.log
+/functions/node_modules
 
 # IDEs and editors
 .idea/

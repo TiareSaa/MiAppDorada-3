@@ -65,8 +65,6 @@ export class ActividadDetallePage implements OnInit {
     }
   }
 
-
-
   async abrirModal(titulo: string, descripcion: string, videoUrl: string) {
     const modal = await this.modalController.create({
       component: ModalEjercicioComponent,

@@ -23,7 +23,7 @@ export const routes: Routes = [
   { path: 'memorice',loadComponent: () => import('./pages/ejerciciosmentales/memorice/memorice.page').then(m => m.MemoricePage) },
   { path: 'juego-colores', loadComponent: () => import('./pages/juegos/juego-colores.page').then(m => m.JuegoColoresPage) },
   { path: 'secuencia-numeros', loadComponent: () => import('./pages/ejerciciosmentales/secuencia-numeros/secuencia-numeros.page').then(m => m.SecuenciaNumerosPage) },
-
+  { path: 'configuracion', loadComponent: () => import('./pages/configuracion/config.page').then((m) => m.ConfigPage) },
   // Rutas secundarias
   { path: 'register', loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage) },
   

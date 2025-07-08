@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardTitle, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardTitle, IonButton, IonBackButton, IonButtons } from '@ionic/angular/standalone';
 import { PanicService } from '../../services/panic.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PanicService } from '../../services/panic.service';
   templateUrl: './panic.page.html',
   styleUrls: ['./panic.page.scss'],
   standalone: true,
-  imports: [IonButton, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButtons, IonBackButton, IonButton, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class PanicPage implements OnInit {
 

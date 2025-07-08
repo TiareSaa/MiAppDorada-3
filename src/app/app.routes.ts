@@ -19,11 +19,12 @@ export const routes: Routes = [
   { path: 'panic', loadComponent: () => import('./pages/panic/panic.page').then((m) => m.PanicPage) },
   { path: 'consejos-detalle/:categoria', loadComponent: () => import('./pages/consejos-detalle/consejos-detalle.page').then((m) => m.ConsejosDetallePage) },
   { path: 'consejos-guia/:id', loadComponent: () => import('./pages/consejos-guia/consejos-guia.page').then((m) => m.ConsejosGuiaPage) },
-  { path: 'respiracion', loadComponent: () => import('./pages/respiracion/respiracion.page').then(m => m.RespiracionPage) },
-  { path: 'memorice',loadComponent: () => import('./pages/ejerciciosmentales/memorice/memorice.page').then(m => m.MemoricePage) },
-  { path: 'juego-colores', loadComponent: () => import('./pages/juegos/juego-colores.page').then(m => m.JuegoColoresPage) },
-  { path: 'secuencia-numeros', loadComponent: () => import('./pages/ejerciciosmentales/secuencia-numeros/secuencia-numeros.page').then(m => m.SecuenciaNumerosPage) },
+  { path: 'respiracion', loadComponent: () => import('./pages/respiracion/respiracion.page').then((m) => m.RespiracionPage) },
+  { path: 'memorice', loadComponent: () => import('./pages/ejerciciosmentales/memorice/memorice.page').then((m) => m.MemoricePage) },
+  { path: 'juego-colores', loadComponent: () => import('./pages/juegos/juego-colores.page').then((m) => m.JuegoColoresPage) },
+  { path: 'secuencia-numeros', loadComponent: () => import('./pages/ejerciciosmentales/secuencia-numeros/secuencia-numeros.page').then((m) => m.SecuenciaNumerosPage) },
   { path: 'configuracion', loadComponent: () => import('./pages/configuracion/config.page').then((m) => m.ConfigPage) },
+  { path: 'informacion', loadComponent: () => import('./pages/informacion/informacion.page').then((m) => m.InformacionPage) },
   // Rutas secundarias
   { path: 'register', loadComponent: () => import('./pages/register/register.page').then((m) => m.RegisterPage) },
   

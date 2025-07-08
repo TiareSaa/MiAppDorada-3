@@ -3,12 +3,9 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonicModule } from '@ionic/angular';
 import { ModalEjercicioComponent } from '../../components/modals/modal-ejercicio/modal-ejercicio.component';
-import {
-  IonCard, IonCardHeader, IonCardContent, IonCardTitle,
-  IonCol, IonGrid, IonRow, IonBackButton, IonButtons, IonHeader, IonTitle, IonToolbar, IonContent
-} from '@ionic/angular/standalone';
+
 
 @Component({
   selector: 'app-actividad-detalle',
@@ -16,11 +13,7 @@ import {
   templateUrl: './actividad-detalle.page.html',
   styleUrls: ['./actividad-detalle.page.scss'],
   imports: [
-    CommonModule, FormsModule,
-    IonCard, IonCardHeader, IonCardContent, IonCardTitle,
-    IonCol, IonGrid, IonRow,
-    IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton,
-    ModalEjercicioComponent
+    CommonModule, FormsModule, IonicModule
   ]
 })
 export class ActividadDetallePage implements OnInit {

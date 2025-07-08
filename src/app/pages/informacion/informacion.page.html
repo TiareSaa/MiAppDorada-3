@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Política de Privacidad</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="light" (click)="cerrar()">
+        <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Su privacidad es importante</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        En <strong>Mi App Dorada</strong> valoramos profundamente su confianza.
+        Sus datos son almacenados localmente en su dispositivo y, en ciertos casos, en servidores seguros de Firebase.
+        <br><br>
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        No comercializamos ni compartimos su información sin su consentimiento.
+      </p>
+        <br><br>
+      <p>
+        Usted puede consultar, modificar o eliminar su información directamente desde la aplicación en cualquier momento.
+      </p>
+      
+      <br><br>
+      
+      <ion-note color="medium">
+        Gracias por confiar en nosotros. <strong>Estamos aquí para acompañarle y protegerle.</strong>
+      </ion-note>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="centered-btn">
+    <ion-button color="primary" expand="block" (click)="cerrar()">
+      Entendido
+    </ion-button>
+  </div>
+</ion-content>

@@ -12,7 +12,6 @@ $RECYCLE.BIN/
 *.log
 log.txt
 
-
 /.sourcemaps
 /.versions
 /coverage
@@ -22,7 +21,6 @@ log.txt
 /www
 /platforms
 /plugins
-
 
 # Compiled output
 /dist
@@ -54,7 +52,6 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-
 # Miscellaneous
 /.angular
 /.angular/cache
@@ -62,7 +59,6 @@ yarn-error.log
 /.nx
 /.nx/cache
 /connect.lock
-/coverage
 /libpeerconnection.log
 testem.log
 /typings
@@ -71,8 +67,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Archivos de entorno
-*/src/environments/environment.ts
-*/src/environments/environment.prod.ts
-environment.ts
-environment.prod.ts
+# Archivos de entorno (¡NO ignorar para Appflow!)
+# Descomentar si usas variables de entorno reales en producción
+# environment.ts
+# environment.prod.ts
+# src/environments/environment.ts
+# src/environments/environment.prod.ts
